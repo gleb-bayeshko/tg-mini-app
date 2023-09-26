@@ -1,6 +1,6 @@
 {
     "env": {
-        "browser": true,
+        "node": true,
         "es2021": true
     },
     "extends": "eslint:recommended",
@@ -8,6 +8,16 @@
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "rules": {
-    }
+  "rules": {
+    "quotes": ["warn", "single"],
+    "indent": ["warn", 2],
+    "no-multi-spaces": [
+      "warn",
+      {
+        "ignoreEOLComments": false
+      }
+    ],
+    "no-trailing-spaces": "warn",
+    "semi": ["warn", "never"]
+  }
 }
