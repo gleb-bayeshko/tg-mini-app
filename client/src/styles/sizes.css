@@ -1,0 +1,10 @@
+:root {
+    /* Header */
+    --header-height: 50px;
+
+
+    /* Border radii */
+    --card-border-radius: 25px;
+    --button-border-radius: 12px;
+    --icon-button-border-radius: 5px;
+}
