@@ -4,7 +4,7 @@ import jsconfigPaths from 'vite-jsconfig-paths'
 
 export default defineConfig({
   plugins: [
+    jsconfigPaths(),
     react(),
-    jsconfigPaths()
   ],
 })

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { getClassName } from 'utils'
+import { getClassName } from 'shared/utils'
 import './styles.css'
 
 function Card({ children, color, className, styles }) {

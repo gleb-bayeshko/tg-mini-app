@@ -1,4 +1,4 @@
-import { isObject, isString } from '../index'
+import { isObject, isString } from 'shared/utils/index.js'
 
 /**
  * The function turns the arguments, which can be either strings or objects,
@@ -9,7 +9,7 @@ import { isObject, isString } from '../index'
  * @param {...*} args - arguments, which will be converted into single string
  * @return {string} - single-string class name
  */
-export const getClassName = (...args) => {
+const getClassName = (...args) => {
   const classNames = []
 
   args.forEach(el => {
@@ -32,3 +32,6 @@ export const getClassName = (...args) => {
 
   return classNames.join(' ')
 }
+
+
+export default getClassName

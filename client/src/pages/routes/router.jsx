@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom'
 import MainPage from 'pages/MainPage.jsx'
-import { routerPath } from './const'
+import { routerPath } from 'pages/routes/const.js'
 
 
 const router = createBrowserRouter([

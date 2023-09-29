@@ -1,6 +1,7 @@
 import { RouterProvider } from 'react-router-dom'
-import Header from 'features/ui/Header/Header.jsx'
-import router from './routes/router'
+import { router } from 'pages/routes'
+import { Header } from 'shared/ui/Header'
+import './globalStyles/index.css'
 import './App.css'
 
 function App() {
