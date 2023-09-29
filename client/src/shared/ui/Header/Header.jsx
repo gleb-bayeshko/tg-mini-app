@@ -1,6 +1,6 @@
-import BurgerButton from 'features/ui/BurgerButton/BurgerButton.jsx'
-import Cart from 'features/ui/Cart/Cart.jsx'
-import Wrapper from 'features/ui/Wrapper/Wrapper.jsx'
+import { BurgerButton } from 'shared/ui/BurgerButton'
+import { Cart } from 'shared/ui/Cart'
+import { Wrapper } from 'shared/ui/Wrapper'
 import './styles.css'
 
 function Header () {
