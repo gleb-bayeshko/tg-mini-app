@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { getClassName } from 'utils'
+import { getClassName } from 'shared/utils'
 import './styles.css'
 
 function BurgerButton() {
