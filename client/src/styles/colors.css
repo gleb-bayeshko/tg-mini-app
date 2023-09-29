@@ -1,0 +1,20 @@
+:root {
+    --pink-primary-color: #FF575F;
+    --orange-primary-color: #FF974A;
+    --yellow-primary-color: #FFC542;
+    --green-primary-color: #3DD598;
+    --blue-primary-color: #0062FF;
+    --violet-primary-color: #755FE2;
+
+    --pink-primary-color-contrast: #FF464F;
+    --orange-primary-color-contrast: #FF8A34;
+    --yellow-primary-color-contrast: #FFBC25;
+    --green-primary-color-contrast: #25C685;
+    --blue-primary-color-contrast: #005DF2;
+    --violet-primary-color-contrast: #6952DC;
+
+    --white-color: #FFFFFF;
+    --black-color: #22343C;
+    --black-dark-color: #1A282F;
+    --gray-color: #30444E;
+}
