@@ -39,7 +39,8 @@ module.exports = {
     'semi': ['warn', 'never'],
     'object-curly-spacing': ['warn', 'always'],
     'object-curly-newline': ['error', { 'multiline': true }],
-    'no-unused-vars': ['warn', { 'vars': 'all', 'args': 'after-used', 'ignoreRestSiblings': false }]
+    'no-unused-vars': ['warn', { 'vars': 'all', 'args': 'after-used', 'ignoreRestSiblings': false }],
+    'no-multiple-empty-lines': ["warn", { "max": 1, "maxEOF": 0 }]
   },
   'overrides': [
     {

@@ -7,4 +7,5 @@ export default defineConfig({
     jsconfigPaths(),
     react(),
   ],
+  resolve: { extensions: ['.js', '.jsx'] },
 })
