@@ -2,7 +2,7 @@
     position: absolute;
     width: 100%;
     height: var(--header-height);
-    padding: var(--header-vertical-padding) 0;
+    padding: var(--spacing-4) 0;
 }
 
 .header__content {

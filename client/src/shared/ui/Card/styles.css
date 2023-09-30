@@ -1,5 +1,6 @@
 .card {
     border-radius: var(--card-border-radius);
+    padding: 16px;
 }
 
 .card_pink {

@@ -6,7 +6,7 @@ function Card({ children, color, className, styles }) {
   return (
     <div
       className={getClassName( 'card', {
-        className,
+        [`${className}`]: className,
         [`card_${color}`]: color
       })}
       style={styles}

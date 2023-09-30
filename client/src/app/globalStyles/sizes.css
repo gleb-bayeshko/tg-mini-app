@@ -1,22 +1,13 @@
 :root {
-    /*--------------*/
-    /* SHARED SIZES */
-    /*--------------*/
-
     /* border radii */
     --card-border-radius: 25px;
     --button-border-radius: 12px;
+    --button-border-radius-extra: 18px;
     --icon-button-border-radius: 5px;
 
     --circle-border-radius: 50%;
 
-    /* paddings */
-    --header-vertical-padding: 8px;
-    --app-content-padding-top: 8px;
-
-    /*------------------------*/
-    /* COMPONENTS BASED SIZES */
-    /*------------------------*/
+    /*-------COMPONENTS-----------*/
 
     /* Header */
     --header-height: 64px;
