@@ -1,5 +1,5 @@
+import { Cart } from 'features/cart/CartButton'
 import { BurgerButton } from 'shared/ui/BurgerButton'
-import { Cart } from 'shared/ui/Cart'
 import { Wrapper } from 'shared/ui/Wrapper'
 import './styles.css'
 
