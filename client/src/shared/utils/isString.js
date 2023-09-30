@@ -1,3 +1,3 @@
-export const isString = el => typeof el === 'string'
+export const isString = val => typeof val === 'string'
 
 export default isString

@@ -8,7 +8,9 @@ function App() {
   return (
     <div className="app">
       <Header />
-      <RouterProvider router={router} />
+      <div className="app__content">
+        <RouterProvider router={router} />
+      </div>
     </div>
   )
 }

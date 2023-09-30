@@ -1,9 +1,11 @@
 import { forwardRef, useEffect, useImperativeHandle } from 'react'
 import lottie from 'lottie-web'
 import PropTypes from 'prop-types'
+import { isNumber } from 'shared/utils'
 
 function Lottie ({
   animationData,
+  animationSpeed,
   loop = false,
   autoplay = false,
   renderer = 'canvas',
@@ -12,15 +14,26 @@ function Lottie ({
   let lottiElementRef
   let animation
 
-  useImperativeHandle(ref, () => ({
-    play: () => {
-      animation?.stop()
-      animation?.play()
-    },
-    stop: () => {
-      animation?.stop()
+  useImperativeHandle(ref, () => {
+    const maxFrame = animationData?.op
+    const middleFrame = Math.floor(animationData?.op / 2)
+
+    return {
+      play: () => {
+        animation?.stop()
+        animation?.play()
+      },
+      stop: () => {
+        animation?.stop()
+      },
+      playFirstPart: () => {
+        animation?.playSegments([1, middleFrame], true)
+      },
+      playSecondPart: () => {
+        animation?.playSegments([middleFrame, maxFrame], true)
+      }
     }
-  }), [])
+  }, [animationData?.op])
 
   useEffect(() => {
     animation = lottie.loadAnimation({
@@ -36,6 +49,12 @@ function Lottie ({
     }
   }, [])
 
+  useEffect(() => {
+    if ((isNumber(animationSpeed))) {
+      animation?.setSpeed(animationSpeed)
+    }
+  }, [animationSpeed])
+
   return (
     <div
       className="lottie"
@@ -49,10 +68,13 @@ function Lottie ({
 
 Lottie.propTypes = {
   animationData: PropTypes.object.isRequired,
+  animationSpeed: PropTypes.number,
   loop: PropTypes.bool,
   autoplay: PropTypes.bool,
   renderer: PropTypes.oneOf(['canvas', 'svg']),
-  styles: PropTypes.object
+  styles: PropTypes.object,
 }
 
-export default forwardRef(Lottie)
+const forwardedLottie = forwardRef(Lottie)
+
+export default forwardedLottie
