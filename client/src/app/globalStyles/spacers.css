@@ -1,12 +1,32 @@
 :root {
-    --spacing-1: 2px;
-    --spacing-2: 4px;
-    --spacing-3: 6px;
-    --spacing-4: 8px;
-    --spacing-5: 10px;
-    --spacing-6: 12px;
-    --spacing-7: 14px;
-    --spacing-8: 16px;
-    --spacing-9: 18px;
-    --spacing-10: 20px;
+    --spacing-base: 1rem; /* 10px */
+    --spacing-1: calc(var(--spacing-base) * 0.2);  /* 2px */
+    --spacing-2: calc(var(--spacing-base) * 0.4);  /* 4px */
+    --spacing-3: calc(var(--spacing-base) * 0.6);  /* 6px */
+    --spacing-4: calc(var(--spacing-base) * 0.8);  /* 8px */
+    --spacing-5: calc(var(--spacing-base) * 1.2);  /* 12px */
+    --spacing-6: calc(var(--spacing-base) * 1.4);  /* 14px */
+    --spacing-7: calc(var(--spacing-base) * 1.6);  /* 16px */
+    --spacing-8: calc(var(--spacing-base) * 1.8);  /* 18px */
+    --spacing-9: calc(var(--spacing-base) * 2.0);  /* 20px */
+    --spacing-10: calc(var(--spacing-base) * 2.2);  /* 22px */
+    --spacing-11: calc(var(--spacing-base) * 2.4);  /* 24px */
+    --spacing-12: calc(var(--spacing-base) * 2.6);  /* 26px */
+    --spacing-13: calc(var(--spacing-base) * 2.8);  /* 28px */
+    --spacing-14: calc(var(--spacing-base) * 2.8);  /* 30px */
+
+    --wrapper-padding: var(--spacing-9);
+
+    --blocks-margin-m: var(--spacing-9);
+    --blocks-margin-lg: var(--spacing-11);
+}
+
+.block-margin-m {
+    margin-top: var(--blocks-margin-m);
+    margin-bottom: var(--blocks-margin-m);
+}
+
+.block-margin-lg{
+    margin-top: var(--blocks-margin-lg);
+    margin-bottom: var(--blocks-margin-lg);
 }

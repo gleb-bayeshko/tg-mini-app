@@ -21,7 +21,15 @@
     --violet-primary-color-muted: #393D69;
 
     --white-color: #FFFFFF;
+    --white-color-trasnaprent: rgba(255, 255, 255, 0.6);
+    --white-color-transparent-extra: rgba(255, 255, 255, 0.5);
+
     --black-color: #22343C;
     --black-dark-color: #1A282F;
+    --black-dark-color-transparent: rgba(26, 40, 47, 0.6);
+    --black-dark-color-transparent-extra: rgba(26, 40, 47, 0.3);
+
     --gray-color: #30444E;
+    --gray-color-transparent: rgba(48, 68, 78, 0.6);
+    --gray-color-transparent-extra: rgba(48, 68, 78, 0.3);
 }

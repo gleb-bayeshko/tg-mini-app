@@ -1,0 +1,65 @@
+.button {
+    padding: var(--spacing-6) var(--spacing-6);
+    position: relative;
+    overflow: hidden;
+    transition: background 400ms;
+    color: var(--white-color);
+    background-color: #6200ee;
+    font-size: var(--font-size-3);
+    font-weight: 700;
+    box-shadow: 0 0 8px 0 var(--black-dark-color-transparent-extra);
+    outline: 0;
+    border: 0;
+    border-radius: var(--button-border-radius);
+    cursor: pointer;
+}
+
+.button__content {
+    position: relative;
+    z-index: 50;
+}
+
+
+
+.button_type-default {
+    background-color: var(--violet-primary-color);
+}
+
+.button_type-success {
+    background-color: var(--green-primary-color);
+}
+
+.button_type-danger {
+    background-color: var(--pink-primary-color);
+}
+
+
+
+.button_color-pink {
+    background-color: var(--pink-primary-color);
+}
+
+.button_color-orange {
+    background-color: var(--orange-primary-color);
+}
+
+.button_color-yellow {
+    background-color: var(--yellow-primary-color);
+}
+
+.button_color-green {
+    background-color: var(--green-primary-color);
+}
+
+.button_color-blue {
+    background-color: var(--blue-primary-color);
+}
+
+.button_color-violet {
+    background-color: var(--violet-primary-color);
+}
+
+.button_color-white {
+    background-color: var(--white-color);
+    color: var(--pink-primary-color);
+}

@@ -53,7 +53,7 @@ function Lottie ({
     if ((isNumber(animationSpeed))) {
       animation?.setSpeed(animationSpeed)
     }
-  }, [animationSpeed])
+  }, [animation, animationSpeed])
 
   return (
     <div

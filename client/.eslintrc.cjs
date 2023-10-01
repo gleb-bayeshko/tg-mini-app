@@ -44,6 +44,7 @@ module.exports = {
     'no-unused-vars': ['warn', { 'vars': 'all', 'args': 'after-used', 'ignoreRestSiblings': false }],
     'no-multiple-empty-lines': ["warn", { "max": 1, "maxEOF": 0 }],
     'prefer-const': 'warn',
+    'arrow-parens': ['warn', 'as-needed'],
   },
   'overrides': [
     {
@@ -62,6 +63,7 @@ module.exports = {
                 '^\\./(?=.*/)(?!/?$)',
                 '^\\.(?!/?$)', '^\\./?$',
                 '^.+\\.?(json)$',
+                '^.+const[.js]?$',
                 '^.+\\.?(css)$'
               ]
             ]
