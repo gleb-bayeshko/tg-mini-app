@@ -1,3 +1,4 @@
+import { Button } from 'shared/ui/Button'
 import { Card } from 'shared/ui/Card'
 import { Wrapper } from 'shared/ui/Wrapper'
 import './styles.css'
@@ -15,9 +16,12 @@ function PromoBanner() {
               80% off
             </div>
             <div className="promo-banner-card__text-code">
-              with promo-code
+              with code
             </div>
           </div>
+          <Button color="white">
+            Get it now
+          </Button>
         </Card>
       </Wrapper>
     </div>
