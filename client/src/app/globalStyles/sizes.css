@@ -1,0 +1,14 @@
+:root {
+    /* border radii */
+    --card-border-radius: 25px;
+    --button-border-radius: 12px;
+    --button-border-radius-extra: 18px;
+    --icon-button-border-radius: 5px;
+    --circle-border-radius: 50%;
+
+    /* Viewport sizes*/
+    --max-viewport-width: 480px;
+
+    /* Component sizes */
+    --header-height: 64px;
+}

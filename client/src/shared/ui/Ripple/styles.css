@@ -1,0 +1,26 @@
+.ripple {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.ripple span {
+    position: absolute;
+    transform: scale(0.1);
+    border-radius: var(--circle-border-radius);
+    opacity: 0.7;
+    background-color: var(--white-color-trasnaprent);
+    animation-name: ripple-animation;
+    animation-fill-mode: forwards;
+    animation-duration: 850ms;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+

@@ -1,0 +1,50 @@
+:root {
+    --pink-primary-color: #FF575F;
+    --orange-primary-color: #FF974A;
+    --yellow-primary-color: #FFC542;
+    --green-primary-color: #3DD598;
+    --blue-primary-color: #0062FF;
+    --violet-primary-color: #755FE2;
+
+    --pink-primary-color-transparent: rgba(255, 87, 95, 0.2);
+    --orange-primary-color-transparent: rgba(255, 151, 74, 0.2);
+    --yellow-primary-color-transparent: rgba(255, 197, 66, 0.2);
+    --green-primary-color-transparent: rgba(61, 213, 152, 0.2);
+    --blue-primary-color-transparent: rgba(0, 98, 255, 0.2);
+    --violet-primary-color-transparent: rgba(117, 95, 226, 0.2);
+
+    --pink-primary-color-contrast: #FF464F;
+    --orange-primary-color-contrast: #FF8A34;
+    --yellow-primary-color-contrast: #FFBC25;
+    --green-primary-color-contrast: #25C685;
+    --blue-primary-color-contrast: #005DF2;
+    --violet-primary-color-contrast: #6952DC;
+
+    --pink-primary-color-muted: #623A42;
+    --orange-primary-color-muted: #624D3B;;
+    --yellow-primary-color-muted: #625B39;
+    --green-primary-color-muted: #286053;
+    --blue-primary-color-muted: #163E72;
+    --violet-primary-color-muted: #393D69;
+
+    --white-color: #FFFFFF;
+    --white-color-trasnaprent: rgba(255, 255, 255, 0.6);
+    --white-color-transparent-extra: rgba(255, 255, 255, 0.5);
+
+    --black-color: #22343C;
+    --black-dark-color: #1A282F;
+    --black-dark-color-transparent: rgba(26, 40, 47, 0.6);
+    --black-dark-color-transparent-extra: rgba(26, 40, 47, 0.3);
+
+    --gray-color: #30444E;
+    --gray-color-transparent: rgba(48, 68, 78, 0.6);
+    --gray-color-transparent-extra: rgba(48, 68, 78, 0.3);
+}
+
+.text-regular-color {
+    color: var(--black-color);
+}
+
+.text-gray-color {
+    color: var(--gray-color);
+}

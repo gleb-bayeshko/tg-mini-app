@@ -1,0 +1,13 @@
+.header {
+    position: absolute;
+    max-width: var(--max-viewport-width);
+    width: 100%;
+    height: var(--header-height);
+    padding: var(--spacing-4) 0;
+}
+
+.header__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

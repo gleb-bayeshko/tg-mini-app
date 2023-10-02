@@ -1,0 +1,69 @@
+.card {
+    width: 100%;
+    max-width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--spacing-7);
+    box-shadow: 4px 4px 8px 0px var(--black-dark-color-transparent-extra);
+}
+
+.card_pink {
+    background-color: var(--pink-primary-color);
+}
+
+.card_pink.card_outline-dashed {
+    background-color: var(--pink-primary-color-transparent);
+    border: 3px dashed var(--pink-primary-color);
+}
+
+.card_orange {
+    background-color: var(--orange-primary-color);
+}
+
+.card_orange.card_outline-dashed {
+    background-color: var(--orange-primary-color-transparent);
+    border: 3px dashed var(--orange-primary-color);
+}
+
+.card_yellow {
+    background-color: var(--yellow-primary-color);
+}
+
+.card_yellow.card_outline-dashed {
+    background-color: var(--yellow-primary-color-transparent);
+    border: 3px dashed var(--yellow-primary-color);
+}
+
+.card_green {
+    background-color: var(--green-primary-color);
+}
+
+.card_green.card_outline-dashed {
+    background-color: var(--green-primary-color-transparent);
+    border: 3px dashed var(--green-primary-color);
+}
+
+.card_blue {
+    background-color: var(--blue-primary-color);
+}
+
+.card_blue.card_outline-dashed {
+    background-color: var(--blue-primary-color-transparent);
+    border: 3px dashed var(--blue-primary-color);
+}
+
+.card_violet {
+    background-color: var(--violet-primary-color);
+}
+
+.card_violet.card_outline-dashed {
+    background-color: var(--violet-primary-color-transparent);
+    border: 3px dashed var(--violet-primary-color);
+}
+
+.card_white {
+    background-color: var(--white-color);
+}
+
+.card_white.card_outline-dashed {
+    border: 3px dashed var(--black-color);
+}

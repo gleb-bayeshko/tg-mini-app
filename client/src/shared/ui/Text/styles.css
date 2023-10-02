@@ -1,0 +1,11 @@
+.text_black {
+    color: var(--black-color)
+}
+
+.text_gray {
+    color: var(--gray-color)
+}
+
+.text_white {
+    color: var(--white-color);
+}
