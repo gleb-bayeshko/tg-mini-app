@@ -1,26 +1,52 @@
 export const productCategoriesPopular = [
   {
     id: 1,
-    name: 'Food',
-    category: 'food',
-    imgSrc: '/images/productCategories/category-food.png',
+    category: 'carriers',
+    title: 'Carriers',
+    description: 'For a cozy trip anywhere. Even to the ends of the earth.',
+    imgSrc: '/images/productCategoriesPopular/category-popular-carriers.png',
   },
   {
     id: 2,
-    name: 'Bowls',
-    category: 'bowls',
-    imgSrc: '/images/productCategories/category-bowls.png',
+    category: 'clothes',
+    title: 'Clothes',
+    description: 'Stay warm and cool',
+    imgSrc: '/images/productCategoriesPopular/category-popular-clothes.png',
   },
   {
     id: 3,
-    name: 'Fillers',
-    category: 'fillers',
-    imgSrc: '/images/productCategories/category-litter-box-fillers.png',
+    category: 'food',
+    title: 'Food',
+    description: 'A timeless delicious classic',
+    imgSrc: '/images/productCategoriesPopular/category-popular-food.png',
   },
   {
     id: 4,
-    name: 'Hygiene',
-    category: 'hygiene',
-    imgSrc: '/images/productCategories/category-hygiene-and-care.png',
+    category: 'toys',
+    title: 'Toys',
+    description: 'Unleash your cat\'s playfulness!',
+    imgSrc: '/images/productCategoriesPopular/category-popular-toys.png',
   },
+  {
+    id: 5,
+    category: 'all',
+    title: 'Or explore everything',
+  },
+]
+
+export const productCategoriesStyle = [
+  {
+    height: 160,
+    color: 'violet',
+  },
+  {
+    height: 180,
+    color: 'yellow',
+  },
+  { color: 'pink', },
+  {
+    height: 210,
+    color: 'green',
+  },
+  { color: 'blue', },
 ]
