@@ -3,20 +3,28 @@ import { productCategories } from './const'
 import './styles.css'
 
 function ProductCategoriesScroll() {
+  const renderCategories = () => productCategories.map(({
+    id,
+    name,
+    category,
+    imgSrc
+  }) => (
+    <li className="product-categories-scroll-list__item" key={id}>
+      {/*TODO: Add actual routes*/}
+      <a href="/">
+        <ProductCategoriesItem
+          name={name}
+          category={category}
+          imgSrc={imgSrc}
+        />
+      </a>
+    </li>
+  ))
+
   return (
     <div className="product-categories-scroll">
       <ul className="product-categories-scroll-list">
-        {
-          productCategories.map(({ id, name, category, imgSrc }) => (
-            <li className="product-categories-scroll-list__item" key={id}>
-              <ProductCategoriesItem
-                name={name}
-                category={category}
-                imgSrc={imgSrc}
-              />
-            </li>
-          ))
-        }
+        {renderCategories()}
       </ul>
     </div>
   )
