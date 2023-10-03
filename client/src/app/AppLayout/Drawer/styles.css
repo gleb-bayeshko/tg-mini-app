@@ -1,0 +1,14 @@
+.drawer {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 200px;
+    background: red;
+    z-index: var(--drawer-z-index);
+}
+
+.drawer_open {
+    display: block;
+}

@@ -1,0 +1,24 @@
+.header {
+    position: fixed;
+    max-width: var(--max-viewport-width);
+    width: 100%;
+    height: var(--header-height);
+    padding: var(--spacing-4) 0;
+    background: var(--white-color);
+    z-index: var(--header-z-index);
+    transition: box-shadow 300ms;
+}
+
+.header_scrolled {
+    box-shadow: 4px 6px 12px 0 var(--black-dark-color-transparent-extra);
+}
+
+.header__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__burger-button {
+    z-index: var(--burger-button-z-index);
+}
