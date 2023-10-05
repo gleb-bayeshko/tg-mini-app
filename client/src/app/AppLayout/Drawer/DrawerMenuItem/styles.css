@@ -1,0 +1,13 @@
+.drawer-menu-item {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-6) 0;
+}
+
+.drawer-menu-item__icon {
+    margin-right: var(--spacing-5);
+}
+
+.drawer-menu-item__icon g {
+    stroke: var(--pink-primary-color);
+}

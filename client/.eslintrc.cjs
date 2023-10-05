@@ -64,6 +64,7 @@ module.exports = {
                 '^\\.(?!/?$)', '^\\./?$',
                 '^.+\\.?(json)$',
                 '^.+context[.js]?$',
+                '^.+const[.jsx]?$',
                 '^.+const[.js]?$',
                 '^.+\\.?(css)$'
               ]

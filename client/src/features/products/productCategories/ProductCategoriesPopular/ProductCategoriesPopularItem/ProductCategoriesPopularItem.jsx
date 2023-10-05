@@ -17,7 +17,7 @@ function ProductCategoriesPopularItem({
   return (
     <Card
       className={getClassName('product-categories-popular-item', { [`${className}`]: !!className })}
-      styles={{ height }}
+      styles={{ minHeight: height }}
       color={color}
       type={type}
     >

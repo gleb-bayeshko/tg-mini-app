@@ -3,7 +3,7 @@
     max-width: var(--max-viewport-width);
     width: 100%;
     height: var(--header-height);
-    padding: var(--spacing-4) 0;
+    padding: var(--spacing-2) 0;
     background: var(--white-color);
     z-index: var(--header-z-index);
     transition: box-shadow 300ms;
@@ -19,6 +19,22 @@
     align-items: center;
 }
 
+.header__left {
+    display: flex;
+}
+
 .header__burger-button {
     z-index: var(--burger-button-z-index);
+}
+
+.header__logo {
+    width: 80px;
+    margin-left: var(--spacing-10);
+    margin-bottom: -1px;
+    z-index: var(--logo-z-index);
+    transition: margin 200ms;
+}
+
+.header__logo_shifted {
+    margin-left: var(--spacing-15);
 }

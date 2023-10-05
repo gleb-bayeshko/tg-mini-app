@@ -1,11 +1,14 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 import { Lottie as BurgerMenuLottie } from 'shared/ui/Lottie'
 import { getClassName } from 'shared/utils'
 import burgerMenuAnimation from 'shared/assets/lotties/burgerMenu/burgerMenu.json'
 import './styles.css'
 
-function BurgerButton({ isOpen, className, onClick }) {
+function BurgerButton({ className, onClick }) {
+  const [isButtonOpened, setIsButtonOpened] = useState(false)
+  const { isDrawerOpened } = useSelector(state => state.drawer)
   const ref = useRef()
 
   const handleBurgerClick = () => {
@@ -13,15 +16,21 @@ function BurgerButton({ isOpen, className, onClick }) {
   }
 
   useEffect(() => {
-    if (isOpen) {
+    if (isDrawerOpened && !isButtonOpened) {
       ref.current?.playFirstPart()
+      setIsButtonOpened(true)
     }
-  }, [isOpen])
+
+    if (!isDrawerOpened && isButtonOpened) {
+      ref.current?.playSecondPart()
+      setIsButtonOpened(false)
+    }
+  }, [isDrawerOpened, isButtonOpened])
 
   return (
     <div
       className={getClassName('burger-button' , {
-        'burger-button_opened': isOpen,
+        'burger-button_opened': isButtonOpened,
         [`${className}`]: !!className
       } )}
       onClick={handleBurgerClick}
@@ -30,7 +39,7 @@ function BurgerButton({ isOpen, className, onClick }) {
         ref={ref}
         animationData={burgerMenuAnimation}
         styles={{ width: 55 }}
-        animationSpeed={1.7}
+        animationSpeed={2}
       />
     </div>
   )

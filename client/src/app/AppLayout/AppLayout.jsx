@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
+import { useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
-import { Drawer } from './Drawer'
+import { getClassName } from 'shared/utils'
 import { Header } from './Header'
 import { ScrollContext } from './context'
 import './styles.css'
 
 function AppLayout({ children }) {
   const contentRef = useRef()
+  const { isDrawerOpened } = useSelector(state => state.drawer)
   const [isScrollLocked, setIsScrollLocked] = useState(false)
 
   useEffect(() => {
@@ -26,8 +28,9 @@ function AppLayout({ children }) {
     >
       <div className="app-layout" ref={contentRef}>
         <Header />
-        <Drawer />
-        {children}
+        <div className={getClassName('app-layout__content', { 'app-layout__content_shifted': isDrawerOpened })}>
+          {children}
+        </div>
       </div>
     </ScrollContext.Provider>
   )

@@ -1,3 +1,16 @@
 .scroll-locked {
     overflow: hidden;
 }
+
+.app-layout {
+    overflow: hidden;
+}
+
+.app-layout__content {
+    transition: transform 250ms;
+    overflow: hidden;
+}
+
+.app-layout__content_shifted {
+    transform: translateX(var(--drawer-width));
+}
