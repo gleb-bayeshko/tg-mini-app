@@ -13,7 +13,10 @@
     --spacing-11: calc(var(--spacing-base) * 2.4);  /* 24px */
     --spacing-12: calc(var(--spacing-base) * 2.6);  /* 26px */
     --spacing-13: calc(var(--spacing-base) * 2.8);  /* 28px */
-    --spacing-14: calc(var(--spacing-base) * 2.8);  /* 30px */
+    --spacing-14: calc(var(--spacing-base) * 3.0);  /* 30px */
+    --spacing-15: calc(var(--spacing-base) * 3.2);  /* 32px */
+    --spacing-16: calc(var(--spacing-base) * 3.4);  /* 34px */
+    --spacing-17: calc(var(--spacing-base) * 3.6);  /* 36px */
 
     --wrapper-padding: var(--spacing-9);
 
