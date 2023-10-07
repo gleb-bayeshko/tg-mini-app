@@ -22,3 +22,7 @@
     letter-spacing: 2px;
     -webkit-text-stroke: 1px var(--white-color);
 }
+
+.promo-banner-card__button {
+    box-shadow: 0 0 8px 0 var(--black-dark-color-transparent-extra);
+}
