@@ -1,7 +1,7 @@
 import { forwardRef, useEffect, useImperativeHandle } from 'react'
 import lottie from 'lottie-web'
 import PropTypes from 'prop-types'
-import { isNumber } from 'shared/utils'
+import { getClassName, isNumber } from 'shared/utils'
 
 function Lottie ({
   animationData,
@@ -9,7 +9,8 @@ function Lottie ({
   loop = false,
   autoplay = false,
   renderer = 'canvas',
-  styles
+  styles,
+  className
 }, ref) {
   let lottiElementRef
   let animation
@@ -57,9 +58,9 @@ function Lottie ({
 
   return (
     <div
-      className="lottie"
+      className={getClassName('lottie', { [className]: !!className })}
       style={styles}
-      ref={(r) => {
+      ref={r => {
         lottiElementRef = r
       }}
     />
@@ -72,6 +73,7 @@ Lottie.propTypes = {
   loop: PropTypes.bool,
   autoplay: PropTypes.bool,
   renderer: PropTypes.oneOf(['canvas', 'svg']),
+  className: PropTypes.string,
   styles: PropTypes.object,
 }
 

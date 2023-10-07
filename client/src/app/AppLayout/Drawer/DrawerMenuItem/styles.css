@@ -5,9 +5,42 @@
 }
 
 .drawer-menu-item__icon {
-    margin-right: var(--spacing-5);
+
 }
 
 .drawer-menu-item__icon g {
-    stroke: var(--pink-primary-color);
+    stroke: var(--white-color);
+}
+
+.drawer-menu-item__icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-2);
+    border-radius: var(--button-border-radius);
+    margin-right: var(--spacing-5);
+}
+
+.drawer-menu-item__icon-container_pink {
+    background-color: var(--pink-primary-color);
+}
+
+.drawer-menu-item__icon-container_orange {
+    background-color: var(--orange-primary-color);
+}
+
+.drawer-menu-item__icon-container_yellow {
+    background-color: var(--yellow-primary-color);
+}
+
+.drawer-menu-item__icon-container_green {
+    background-color: var(--green-primary-color);
+}
+
+.drawer-menu-item__icon-container_blue {
+    background-color: var(--blue-primary-color);
+}
+
+.drawer-menu-item__icon-container_violet {
+    background-color: var(--violet-primary-color);
 }

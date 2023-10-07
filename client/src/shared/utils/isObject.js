@@ -1,3 +1,3 @@
-const isObject = obj => obj !== null && obj?.constructor.name === 'Object'
+const isObject = val => val !== null && val?.constructor.name === 'Object'
 
 export default isObject

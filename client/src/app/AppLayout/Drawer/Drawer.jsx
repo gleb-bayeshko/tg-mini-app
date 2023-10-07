@@ -20,11 +20,13 @@ function Drawer() {
     id,
     title,
     icon,
+    color,
     href
   }) => (
     <DrawerMenuItem
       title={title}
       icon={icon}
+      iconColor={color}
       href={href}
       key={id}
       className="drawer-menu__item"
@@ -38,7 +40,7 @@ function Drawer() {
           <div className="drawer-user">
             <div className="drawer-user__avatar">
               <div className="drawer-user__avatar-image-container">
-                <img src="/public/images/avatar/avatar-default.png" className="drawer-user__avatar-image" alt="avatar" />
+                <img src="/images/avatar/avatar-default.png" className="drawer-user__avatar-image" alt="avatar" />
               </div>
             </div>
             <div className="drawer-user__info">

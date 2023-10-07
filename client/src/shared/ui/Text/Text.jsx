@@ -16,7 +16,7 @@ function Text({
   return (
     <TextTag
       className={getClassName('text', {
-        [`${className}`]: !!className,
+        [className]: !!className,
         [`text_${color}`]: color,
       })}
       style={styles}

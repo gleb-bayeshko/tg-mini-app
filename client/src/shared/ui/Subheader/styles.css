@@ -1,0 +1,14 @@
+.subheader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: var(--spacing-5) 0;
+}
+
+.subheader__arrow {
+    width: 20px;
+}
+
+.subheader__arrow path {
+    fill: var(--orange-primary-color);
+}

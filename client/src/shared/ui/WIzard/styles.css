@@ -1,0 +1,13 @@
+.wizard {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    display: flex;
+}
+
+.wizard__content {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    transition: transform 150ms;
+}

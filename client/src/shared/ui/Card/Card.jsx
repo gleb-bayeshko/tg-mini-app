@@ -12,7 +12,7 @@ function Card({
   return (
     <div
       className={getClassName( `card card_${type}`, {
-        [`${className}`]: className,
+        [className]: className,
         [`card_${color}`]: !!color
       })}
       style={styles}

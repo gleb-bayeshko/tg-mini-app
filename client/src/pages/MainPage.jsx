@@ -8,10 +8,10 @@ function MainPage() {
       <section className="home-page__promo-banner">
         <PromoBanner />
       </section>
-      <section className="home-page__product-categories block-margin-m">
+      <section className="home-page__product-categories block-margin-top">
         <ProductCategoriesScroll />
       </section>
-      <section className="home-page__product-categories-popular block-margin-m">
+      <section className="home-page__product-categories-popular">
         <ProductCategoriesPopular />
       </section>
     </div>
