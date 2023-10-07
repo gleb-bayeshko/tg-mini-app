@@ -29,7 +29,23 @@
     margin-bottom: var(--blocks-margin-m);
 }
 
-.block-margin-lg{
+.block-margin-top {
+    margin-top: var(--blocks-margin-m);
+}
+
+.block-margin-bottom {
+    margin-bottom: var(--blocks-margin-m);
+}
+
+.block-margin-lg {
     margin-top: var(--blocks-margin-lg);
+    margin-bottom: var(--blocks-margin-lg);
+}
+
+.block-margin-lg-top {
+    margin-top: var(--blocks-margin-lg);
+}
+
+.block-margin-lg-bottom {
     margin-bottom: var(--blocks-margin-lg);
 }

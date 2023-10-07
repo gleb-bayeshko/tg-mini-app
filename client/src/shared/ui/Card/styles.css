@@ -11,7 +11,7 @@
 }
 
 .card_pink.card_outline-dashed {
-    background-color: var(--pink-primary-color-transparent);
+    background-color: var(--pink-primary-color-transparent-extra);
     border: 3px dashed var(--pink-primary-color);
 }
 
@@ -20,7 +20,7 @@
 }
 
 .card_orange.card_outline-dashed {
-    background-color: var(--orange-primary-color-transparent);
+    background-color: var(--orange-primary-color-transparent-extra);
     border: 3px dashed var(--orange-primary-color);
 }
 
@@ -29,7 +29,7 @@
 }
 
 .card_yellow.card_outline-dashed {
-    background-color: var(--yellow-primary-color-transparent);
+    background-color: var(--yellow-primary-color-transparent-extra);
     border: 3px dashed var(--yellow-primary-color);
 }
 
@@ -38,7 +38,7 @@
 }
 
 .card_green.card_outline-dashed {
-    background-color: var(--green-primary-color-transparent);
+    background-color: var(--green-primary-color-transparent-extra);
     border: 3px dashed var(--green-primary-color);
 }
 
@@ -47,7 +47,7 @@
 }
 
 .card_blue.card_outline-dashed {
-    background-color: var(--blue-primary-color-transparent);
+    background-color: var(--blue-primary-color-transparent-extra);
     border: 3px dashed var(--blue-primary-color);
 }
 
@@ -56,7 +56,7 @@
 }
 
 .card_violet.card_outline-dashed {
-    background-color: var(--violet-primary-color-transparent);
+    background-color: var(--violet-primary-color-transparent-extra);
     border: 3px dashed var(--violet-primary-color);
 }
 

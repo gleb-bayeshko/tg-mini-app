@@ -2,12 +2,15 @@
     padding: var(--spacing-6) var(--spacing-6);
     position: relative;
     overflow: hidden;
-    transition: background 400ms;
+    transition: background 400ms, opacity 300ms;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--white-color);
     background-color: #6200ee;
     font-size: var(--font-size-3);
     font-weight: 700;
-    box-shadow: 0 0 8px 0 var(--black-dark-color-transparent-extra);
     outline: 0;
     border: 0;
     border-radius: var(--button-border-radius);
@@ -61,4 +64,10 @@
 .button_color-white {
     background-color: var(--white-color);
     color: var(--pink-primary-color);
+}
+
+
+
+.button:disabled {
+    opacity: 0.4;
 }

@@ -6,12 +6,19 @@
     --blue-primary-color: #0062FF;
     --violet-primary-color: #755FE2;
 
-    --pink-primary-color-transparent: rgba(255, 87, 95, 0.2);
-    --orange-primary-color-transparent: rgba(255, 151, 74, 0.2);
-    --yellow-primary-color-transparent: rgba(255, 197, 66, 0.2);
-    --green-primary-color-transparent: rgba(61, 213, 152, 0.2);
-    --blue-primary-color-transparent: rgba(0, 98, 255, 0.2);
-    --violet-primary-color-transparent: rgba(117, 95, 226, 0.2);
+    --pink-primary-color-transparent: rgba(255, 87, 95, 0.7);
+    --orange-primary-color-transparent: rgba(255, 151, 74, 0.7);
+    --yellow-primary-color-transparent: rgba(255, 197, 66, 0.7);
+    --green-primary-color-transparent: rgba(61, 213, 152, 0.7);
+    --blue-primary-color-transparent: rgba(0, 98, 255, 0.7);
+    --violet-primary-color-transparent: rgba(117, 95, 226, 0.7);
+
+    --pink-primary-color-transparent-extra: rgba(255, 87, 95, 0.2);
+    --orange-primary-color-transparent-extra: rgba(255, 151, 74, 0.2);
+    --yellow-primary-color-transparent-extra: rgba(255, 197, 66, 0.2);
+    --green-primary-color-transparent-extra: rgba(61, 213, 152, 0.2);
+    --blue-primary-color-transparent-extra: rgba(0, 98, 255, 0.2);
+    --violet-primary-color-transparent-extra: rgba(117, 95, 226, 0.2);
 
     --pink-primary-color-contrast: #FF464F;
     --orange-primary-color-contrast: #FF8A34;
@@ -34,11 +41,14 @@
     --black-color: #22343C;
     --black-dark-color: #1A282F;
     --black-dark-color-transparent: rgba(26, 40, 47, 0.6);
-    --black-dark-color-transparent-extra: rgba(26, 40, 47, 0.3);
+    --black-dark-color-transparent-extra: rgba(26, 40, 47, 0.2);
 
     --gray-color: #30444E;
     --gray-color-transparent: rgba(48, 68, 78, 0.6);
-    --gray-color-transparent-extra: rgba(48, 68, 78, 0.3);
+    --gray-color-transparent-extra: rgba(48, 68, 78, 0.2);
+
+    --color-disabled:  rgba(48, 68, 78, 0.05);
+    --color-error: #f8252f;
 }
 
 .text-regular-color {

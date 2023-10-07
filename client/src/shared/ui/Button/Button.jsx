@@ -1,16 +1,18 @@
 import { useRef } from 'react'
 import PropTypes from 'prop-types'
 import { Ripple } from 'shared/ui/Ripple'
+import { Spinner } from 'shared/ui/Spinner'
 import { getClassName } from 'shared/utils'
 import './styles.css'
 
 function Button({
-  type = 'default',
+  colorType = 'default',
   color,
   onClick,
   className,
   styles,
   children,
+  isLoading = false,
   ...other
 }) {
   const buttonRef = useRef()
@@ -27,31 +29,40 @@ function Button({
       onClick={handleButtonClick}
       className={getClassName(
         'button',
-        `button_type-${type}`,
+        `button_type-${colorType}`,
         {
-          [`${className}`]: !!className,
+          [className]: !!className,
           [`button_color-${color}`]: !!color,
         }
       )}
       style={styles}
       {...other}
     >
-      <div className="button__content">
-        {children}
-      </div>
-      <Ripple
-        ref={rippleRef}
-        color={color === 'white' ? 'var(--gray-color-transparent-extra)' : null}
-      />
+      {
+        isLoading
+          ? <Spinner />
+          : (
+            <>
+              <div className="button__content">
+                {children}
+              </div>
+              <Ripple
+                ref={rippleRef}
+                color={color === 'white' ? 'var(--gray-color-transparent-extra)' : null}
+              />
+            </>
+          )
+      }
     </button>
   )
 }
 
 Button.propTypes = {
-  type: PropTypes.oneOf(['default, success, danger']),
+  colorType: PropTypes.oneOf(['default, success, danger']),
   size: PropTypes.oneOf(['sm', 'm', 'lg']),
   color: PropTypes.oneOf(['pink', 'orange', 'yellow', 'green', 'blue', 'violet', 'white']),
   onClick: PropTypes.func,
+  isLoading: PropTypes.bool,
   styles: PropTypes.object,
   className: PropTypes.string,
   children: PropTypes.node

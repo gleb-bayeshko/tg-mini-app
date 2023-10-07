@@ -33,5 +33,4 @@ const getClassName = (...args) => {
   return classNames.join(' ')
 }
 
-
 export default getClassName

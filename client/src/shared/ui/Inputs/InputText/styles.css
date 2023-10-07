@@ -1,0 +1,22 @@
+.input {
+    outline: none;
+    border: 2px solid var(--violet-primary-color-transparent);
+    box-shadow: none;
+    border-radius: var(--input-border-radius);
+    padding: var(--spacing-2) var(--spacing-4);
+    transition: border-color 100ms;
+}
+
+.input:focus {
+    border-color: var(--violet-primary-color-contrast);
+}
+
+.input:disabled {
+    border-color: var(--gray-color-transparent-extra);
+    background-color: var(--color-disabled);
+    cursor: not-allowed;
+}
+
+.input::placeholder {
+    color: var(--gray-color-transparent);
+}

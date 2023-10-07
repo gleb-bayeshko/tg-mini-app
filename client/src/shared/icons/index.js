@@ -1,2 +1,8 @@
 export { default as ArrowRightIcon } from './ArrowRightIcon'
 export { default as CartIcon } from './CartIcon'
+export { default as CloseIcon } from './CloseIcon'
+export { default as ExploreIcon } from './ExploreIcon'
+export { default as HeartIcon } from './HeartIcon'
+export { default as HistoryIcon } from './HistoryIcon'
+export { default as LocationIcon } from './LocationIcon'
+export { default as LogoIcon } from './LogoIcon'
