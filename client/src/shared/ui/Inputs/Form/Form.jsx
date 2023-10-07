@@ -60,111 +60,111 @@ function reducer(state, action) {
   }
 }
 
-function Form({
-  initialValues = {},
-  onSubmit,
-  children,
-  className,
-  validationFunc,
-}, ref) {
-  const [state, dispatch] = useReducer(reducer, {
-    values: initialValues,
-    errors: {},
-    isSubmitting: false,
-    isFormValid: true,
-  })
+const Form = forwardRef(
+  function Form({
+    initialValues = {},
+    onSubmit,
+    children,
+    className,
+    validationFunc,
+  }, ref) {
+    const [state, dispatch] = useReducer(reducer, {
+      values: initialValues,
+      errors: {},
+      isSubmitting: false,
+      isFormValid: true,
+    })
 
-  const onChange = e => {
-    const name = e.currentTarget.name
-    const value = e.currentTarget.value
+    const onChange = e => {
+      const name = e.currentTarget.name
+      const value = e.currentTarget.value
 
-    dispatch({
-      type: actions.SET_VALUE,
-      payload: {
-        name,
-        value
+      dispatch({
+        type: actions.SET_VALUE,
+        payload: {
+          name,
+          value
+        },
+      })
+
+      dispatch({
+        type: actions.REMOVE_ERROR,
+        payload: { name },
+      })
+    }
+
+    const handleSubmit = async e => {
+      e.preventDefault()
+
+      if (!state.isFormValid) {
+        return
+      }
+
+      dispatch({
+        type: actions.SET_IS_SUBMITTING,
+        payload: true,
+      })
+
+      await onSubmit?.(state.values, ref.current)
+
+      dispatch({
+        type: actions.SET_IS_SUBMITTING,
+        payload: false,
+      })
+
+    }
+
+    const context = {
+      onChange,
+      values: state.values,
+      errors: state.errors,
+    }
+
+    useImperativeHandle(ref, () => ({
+      resetForm: () => {
+        dispatch({
+          type: actions.RESET_VALUES,
+          payload: initialValues
+        })
       },
-    })
+      setErrors: errors => {
+        dispatch({
+          type: actions.SET_ERRORS,
+          payload: errors
+        })
+      }
+    }), [initialValues])
 
-    dispatch({
-      type: actions.REMOVE_ERROR,
-      payload: { name },
-    })
-  }
-
-  const handleSubmit = async e => {
-    e.preventDefault()
-
-    if (!state.isFormValid) {
-      return
-    }
-
-    dispatch({
-      type: actions.SET_IS_SUBMITTING,
-      payload: true,
-    })
-
-    await onSubmit?.(state.values, ref.current)
-
-    dispatch({
-      type: actions.SET_IS_SUBMITTING,
-      payload: false,
-    })
-
-  }
-
-  const context = {
-    onChange,
-    values: state.values,
-    errors: state.errors,
-  }
-
-  useImperativeHandle(ref, () => ({
-    resetForm: () => {
+    useEffect(() => {
       dispatch({
-        type: actions.RESET_VALUES,
-        payload: initialValues
+        type: actions.SET_IS_FORM_VALID,
+        payload: validationFunc
+          ? validationFunc(state.values)
+          : true,
       })
-    },
-    setErrors: errors => {
-      dispatch({
-        type: actions.SET_ERRORS,
-        payload: errors
-      })
-    }
-  }), [initialValues])
+    }, [state.values, validationFunc])
 
-  useEffect(() => {
-    dispatch({
-      type: actions.SET_IS_FORM_VALID,
-      payload: validationFunc
-        ? validationFunc(state.values)
-        : true,
-    })
-  }, [state.values, validationFunc])
+    return (
+      <FormContext.Provider value={context}>
+        <form onSubmit={handleSubmit} className={className}>
+          {
+            isFunction(children)
+              ? children({ isFormValid: state.isFormValid, isSubmitting: state.isSubmitting })
+              : children
+          }
+        </form>
+      </FormContext.Provider>
 
-  return (
-    <FormContext.Provider value={context}>
-      <form onSubmit={handleSubmit} className={className}>
-        {
-          isFunction(children)
-            ? children({ isFormValid: state.isFormValid, isSubmitting: state.isSubmitting })
-            : children
-        }
-      </form>
-    </FormContext.Provider>
-
-  )
-}
+    )
+  }
+)
 
 Form.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   onSubmit: PropTypes.func,
   validationFunc: PropTypes.func,
   initialValues: PropTypes.object,
   className: PropTypes.string
 }
 
-const forwardedForm = forwardRef(Form)
-
-export default forwardedForm
+export default Form

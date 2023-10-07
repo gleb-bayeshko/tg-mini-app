@@ -1,17 +1,20 @@
+import { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { getClassName } from 'shared/utils'
 import 'shared/ui/Inputs/InputText/styles.css'
 
-function InputText({ className, value, inputRef, ...other }) {
-  return (
-    <input
-      className={getClassName('input', { [className]: !!className })}
-      value={value}
-      ref={inputRef}
-      {...other}
-    />
-  )
-}
+const InputText = forwardRef(
+  function InputText({ className, value, ...other }, ref) {
+    return (
+      <input
+        className={getClassName('input', { [className]: !!className })}
+        value={value}
+        ref={ref}
+        {...other}
+      />
+    )
+  }
+)
 
 InputText.propTypes = {
   className: PropTypes.string,

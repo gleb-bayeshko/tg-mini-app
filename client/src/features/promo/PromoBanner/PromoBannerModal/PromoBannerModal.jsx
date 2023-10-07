@@ -22,7 +22,6 @@ const SUCCESS_ANIMATION_DELAY = 120
 
 function PromoBannerModal({ isOpen, onClose }) {
   const formRef = useRef(null)
-  const inputRef = useRef(null)
   const successRef = useRef(null)
   const [wizardStep, setWizardStep] = useState(0)
 
@@ -47,13 +46,6 @@ function PromoBannerModal({ isOpen, onClose }) {
 
     return (values.length > 0) && (values.every(val => val.length > 0))
   }
-
-  useEffect(() => {
-    if (!isOpen) {
-      inputRef.current?.focus()
-
-    }
-  }, [isOpen])
 
   useEffect(() => {
     let timer
@@ -98,8 +90,6 @@ function PromoBannerModal({ isOpen, onClose }) {
                     name="promo-code"
                     placeholder="Enter promo code..."
                     className="promo-banner-modal__promo-code"
-                    elRef={inputRef}
-                    onFocus={() => console.log('FOCUS')}
                   />
                 </div>
 
