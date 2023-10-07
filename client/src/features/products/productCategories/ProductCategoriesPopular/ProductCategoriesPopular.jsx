@@ -1,4 +1,5 @@
 import { ArrowRightIcon } from 'shared/icons'
+import Subheader from 'shared/ui/Subheader/Subheader'
 import { Wrapper } from 'shared/ui/Wrapper'
 import { ProductCategoriesPopularItem } from './ProductCategoriesPopularItem'
 import { productCategoriesPopular, productCategoriesStyle } from './const'
@@ -36,6 +37,9 @@ function ProductCategoriesPopular() {
   return (
     <div className="product-categories-popular">
       <Wrapper>
+        <Subheader href="/">
+          Popular Categories
+        </Subheader>
         <div className="product-categories-popular-content">
           {renderCategories()}
         </div>

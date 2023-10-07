@@ -31,7 +31,7 @@ function BurgerButton({ className, onClick }) {
     <div
       className={getClassName('burger-button' , {
         'burger-button_opened': isButtonOpened,
-        [`${className}`]: !!className
+        [className]: !!className
       } )}
       onClick={handleBurgerClick}
     >
