@@ -1,6 +1,5 @@
 import { Provider } from 'react-redux'
-import { RouterProvider } from 'react-router-dom'
-import { router } from 'pages/routes'
+import { Outlet } from 'react-router-dom'
 import { AppLayout } from './AppLayout'
 import { store } from './store'
 import './globalStyles/index.css'
@@ -12,7 +11,7 @@ function App() {
       <div className="app">
         <AppLayout>
           <div className="app__content">
-            <RouterProvider router={router} />
+            <Outlet />
           </div>
         </AppLayout>
       </div>

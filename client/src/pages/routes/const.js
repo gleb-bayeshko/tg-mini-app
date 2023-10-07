@@ -1,4 +1,4 @@
 export const routerPath = {
-  main: '/',
-  home: '/d'
+  home: '/',
+  products: '/products',
 }

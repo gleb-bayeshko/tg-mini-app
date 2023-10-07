@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { Drawer } from 'app/AppLayout/Drawer'
 import { toggleDrawer } from 'app/AppLayout/Drawer/drawerSlice'
 import { Cart } from 'features/cart/CartButton'
@@ -7,6 +8,7 @@ import LogoIcon from 'shared/icons/LogoIcon'
 import { BurgerButton } from 'shared/ui/BurgerButton'
 import { Wrapper } from 'shared/ui/Wrapper'
 import { getClassName } from 'shared/utils'
+import { routerPath } from 'pages/routes/const'
 import './styles.css'
 
 const SCROLL_VALUE = 8
@@ -30,7 +32,9 @@ function Header () {
               className="header__burger-button"
               onClick={handleBurgerButtonClick}
             />
-            <LogoIcon className={getClassName('header__logo', { 'header__logo_shifted': isDrawerOpened })} />
+            <Link to={routerPath.home} className={getClassName('header__logo', { 'header__logo_shifted': isDrawerOpened })}>
+              <LogoIcon />
+            </Link>
           </div>
           <Cart />
         </div>
