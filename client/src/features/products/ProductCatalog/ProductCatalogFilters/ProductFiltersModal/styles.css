@@ -1,0 +1,44 @@
+.product-filters-modal__title {
+    text-align: center;
+}
+
+.product-filters-modal__form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-filters-modal__form-content {
+    overflow-y: auto;
+}
+
+.product-filters-modal__submit-button {
+    width: 100%;
+}
+
+.product-filters-modal__category-text {
+    margin-top: var(--spacing-9);
+    margin-bottom: var(--spacing-6);
+}
+
+.product-filters-modal__checkbox {
+    margin-bottom: var(--spacing-5);
+}
+
+.product-filters-modal__price-input .product-filters-modal__number-input {
+    width: 100%;
+    border-color: var(--gray-color-transparent);
+    border-width: 1px;
+}
+
+.product-filters-modal__price-input .product-filters-modal__price-min {
+}
+
+.product-filters-modal__price-input .product-filters-modal__price-max {
+}
+
+.product-filters-modal__price-input {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 12px;
+}

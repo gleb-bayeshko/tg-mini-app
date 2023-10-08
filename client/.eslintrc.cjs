@@ -30,7 +30,7 @@ module.exports = {
     'simple-import-sort/imports': 'warn',
     'simple-import-sort/exports': 'warn',
     'quotes': ['warn', 'single'],
-    'indent': ['warn', 2],
+    'indent': ['warn', 2, {'SwitchCase': 1}],
     'no-multi-spaces': [
       'warn',
       {

@@ -13,12 +13,12 @@
     --blue-primary-color-transparent: rgba(0, 98, 255, 0.7);
     --violet-primary-color-transparent: rgba(117, 95, 226, 0.7);
 
-    --pink-primary-color-transparent-extra: rgba(255, 87, 95, 0.2);
-    --orange-primary-color-transparent-extra: rgba(255, 151, 74, 0.2);
-    --yellow-primary-color-transparent-extra: rgba(255, 197, 66, 0.2);
-    --green-primary-color-transparent-extra: rgba(61, 213, 152, 0.2);
-    --blue-primary-color-transparent-extra: rgba(0, 98, 255, 0.2);
-    --violet-primary-color-transparent-extra: rgba(117, 95, 226, 0.2);
+    --pink-primary-color-transparent-extra: rgba(255, 87, 95, 0.3);
+    --orange-primary-color-transparent-extra: rgba(255, 151, 74, 0.3);
+    --yellow-primary-color-transparent-extra: rgba(255, 197, 66, 0.3);
+    --green-primary-color-transparent-extra: rgba(61, 213, 152, 0.3);
+    --blue-primary-color-transparent-extra: rgba(0, 98, 255, 0.3);
+    --violet-primary-color-transparent-extra: rgba(117, 95, 226, 0.3);
 
     --pink-primary-color-contrast: #FF464F;
     --orange-primary-color-contrast: #FF8A34;

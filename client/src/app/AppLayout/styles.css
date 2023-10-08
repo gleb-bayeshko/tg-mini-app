@@ -3,14 +3,22 @@
 }
 
 .app-layout {
-    overflow: hidden;
+    height: 100%;
 }
 
 .app-layout__content {
-    transition: transform 250ms;
-    overflow: hidden;
+    min-height: 100%;
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 .app-layout__content_shifted {
+}
+
+.app-layout__container {
+    transition: transform 250ms;
+}
+
+.app-layout__container_shifted {
     transform: translateX(var(--drawer-width));
 }

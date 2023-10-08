@@ -28,8 +28,10 @@ function AppLayout({ children }) {
     >
       <div className="app-layout" ref={contentRef}>
         <Header />
-        <div className={getClassName('app-layout__content', { 'app-layout__content_shifted': isDrawerOpened })}>
-          {children}
+        <div className="app-layout__content">
+          <div className={getClassName('app-layout__container', { 'app-layout__container_shifted': isDrawerOpened })}>
+            {children}
+          </div>
         </div>
       </div>
     </ScrollContext.Provider>

@@ -1,42 +1,49 @@
-export const categories = [
+export const brands = [
   {
     id: 1,
-    name: 'Food',
-    category: 'food'
+    name: 'Super Cat',
   },
   {
     id: 2,
-    name: 'Bowls',
-    category: 'bowls'
+    name: 'Catty',
   },
   {
     id: 3,
-    name: 'Litter Box Fillers',
-    category: 'fillers'
+    name: 'FunCat Incorporation',
   },
   {
     id: 4,
-    name: 'Toys',
-    category: 'toys'
+    name: 'KitForCat',
   },
   {
     id: 5,
-    name: 'Vitamins',
-    category: 'vitamins'
+    name: 'Cat Care Festival',
   },
   {
     id: 6,
-    name: 'Hygiene and care',
-    category: 'hygiene-and-care'
+    name: 'Sweet',
   },
   {
     id: 7,
-    name: 'Clothes',
-    category: 'clothes'
+    name: 'Goldenz',
+  },
+]
+
+export const lifeStages = [
+  {
+    id: 1,
+    name: 'Kitten (0-12 mos)',
   },
   {
-    id: 8,
-    name: 'Carriers',
-    category: 'carriers'
+    id: 2,
+    name: 'Adult (1-10 yrs)',
+  },
+  {
+    id: 3,
+    name: 'Senior (10 yrs & Older)',
+  },
+  {
+    id: 4,
+    name: 'All Life Stages',
   },
 ]
