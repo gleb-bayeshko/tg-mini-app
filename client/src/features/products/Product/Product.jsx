@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import { useProductCounter } from 'features/products/Product/index'
 import { products } from 'mock/products'
 import { Counter } from 'shared/ui/Counter'
-import Rating from 'shared/ui/Rating/Rating'
+import { Rating } from 'shared/ui/Rating'
 import { Spinner } from 'shared/ui/Spinner'
 import { Text } from 'shared/ui/Text'
 import { Wrapper } from 'shared/ui/Wrapper'
@@ -11,26 +12,10 @@ import './styles.css'
 function Product() {
   const { id } = useParams()
   const [product, setProduct] = useState(null)
+  const { handleCounterChange, getInitialCounterValue } = useProductCounter(id)
 
-  const [counter, setCounter] = useState(0)
-
-  const handleCounterChange = count => {
-    setCounter(count)
-  }
-
+  // Imitate request
   useEffect(() => {
-    // {
-    //   id: productId,
-    //     name,
-    //     rating,
-    //     price,
-    //     brand,
-    //     lifeStage,
-    //     category,
-    //     imgSrc,
-    // }
-
-    // Imitate request
     const product = products.find(({ id: productId }) => `${productId}` === `${id}`)
     setProduct(product)
   }, [id])
@@ -58,6 +43,7 @@ function Product() {
             onChange={handleCounterChange}
             buttonText="Add to cart"
             className="product-main__add-to-cart"
+            initialValue={getInitialCounterValue()}
           />
         </Wrapper>
       </div>

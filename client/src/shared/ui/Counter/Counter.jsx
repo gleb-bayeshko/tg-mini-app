@@ -4,8 +4,8 @@ import { Button } from 'shared/ui/Button'
 import { getClassName } from 'shared/utils'
 import './styles.css'
 
-function Counter({ onChange, buttonText = 'Add', className }) {
-  const [counter, setCounter] = useState(0)
+function Counter({ onChange, buttonText = 'Add', className, initialValue }) {
+  const [counter, setCounter] = useState(initialValue)
 
   const handleAddToCartClick = () => {
     setCounter(1)
@@ -66,6 +66,7 @@ function Counter({ onChange, buttonText = 'Add', className }) {
 Counter.propTypes = {
   onChange: PropTypes.func,
   buttonText: PropTypes.string,
+  initialValue: PropTypes.number,
   className: PropTypes.string,
 }
 

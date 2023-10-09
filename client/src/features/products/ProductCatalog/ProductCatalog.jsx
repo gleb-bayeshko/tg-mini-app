@@ -1,11 +1,11 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { ProductCard } from 'features/products/ProductCard'
 import { products } from 'mock/products'
 import Subheader from 'shared/ui/Subheader/Subheader'
 import { Wrapper } from 'shared/ui/Wrapper'
-import capitalizeString from 'shared/utils/capitalizeString'
+import { capitalizeString } from 'shared/utils'
 import { ProductCatalogFilters } from './ProductCatalogFilters'
 import { sortCategories } from 'features/products/ProductCatalog/ProductCatalogFilters/const'
 import { productCategories } from 'shared/const'
@@ -14,8 +14,7 @@ import './styles.css'
 function ProductCatalog() {
   const { category } = useParams()
 
-  const { sortCategory, filters } = useSelector(state => state.productCatalog)
-
+  const { sortCategory, filters, cart } = useSelector(state => state.productCatalog)
   const currentProducts = useMemo(() => products, [])
 
   const renderProducts = products => products.map(({
@@ -70,10 +69,12 @@ function ProductCatalog() {
     const applyUserFilters = products => {
       const filterEntries = Object.entries(filters)
 
-      console.log(filterEntries)
-
       return filterEntries
         .reduce((productsAcc, [filterName, filterValue]) => {
+          if (!filterValue || (Array.isArray(filterValue) && filterValue.length === 0)) {
+            return productsAcc
+          }
+
           if (filterName === 'price-min') {
             return productsAcc
               .filter(({ price }) => ( +price >= +filterValue ))

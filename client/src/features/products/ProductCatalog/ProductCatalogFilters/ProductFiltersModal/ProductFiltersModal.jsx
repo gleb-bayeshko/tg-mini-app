@@ -21,7 +21,7 @@ function ProductFiltersModal({ isOpen, onClose }) {
     onClose?.()
   }
 
-  const handleClearButtonClick = () => {
+  const handleClear = () => {
     formRef.current?.resetForm()
     dispatch(resetFilters())
   }
@@ -100,7 +100,7 @@ function ProductFiltersModal({ isOpen, onClose }) {
                   'product-filters-modal__clear-button',
                   { 'product-filters-modal__clear-button_open': isAnyValue }
                 )}
-                onClick={handleClearButtonClick}
+                onClick={handleClear}
               >
                 Clear
               </Button>

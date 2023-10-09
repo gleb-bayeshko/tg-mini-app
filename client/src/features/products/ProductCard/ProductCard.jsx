@@ -1,5 +1,5 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useProductCounter } from 'features/products/Product'
 import PropTypes from 'prop-types'
 import { Counter } from 'shared/ui/Counter'
 import Rating from 'shared/ui/Rating/Rating'
@@ -14,11 +14,7 @@ function ProductCard({
   category,
   imgSrc,
 }) {
-  const [counter, setCounter] = useState(0)
-
-  const handleCounterChange = count => {
-    setCounter(count)
-  }
+  const { handleCounterChange, getInitialCounterValue } = useProductCounter(id)
 
   return (
     <div className="product-card">
@@ -41,6 +37,7 @@ function ProductCard({
       <Counter
         onChange={handleCounterChange}
         buttonText="Add to cart"
+        initialValue={getInitialCounterValue()}
       />
     </div>
   )
