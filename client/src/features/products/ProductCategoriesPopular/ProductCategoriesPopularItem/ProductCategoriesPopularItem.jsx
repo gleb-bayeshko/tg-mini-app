@@ -22,12 +22,12 @@ function ProductCategoriesPopularItem({
       type={type}
     >
       {title && (
-        <Text color="white" className="h3" tag="h3">
+        <Text color="white" className="h3" tag="h3" colorThemeDepends={false}>
           {title}
         </Text>
       )}
       {description && (
-        <Text color="white" className="text-m-extra font-weight-3">
+        <Text color="white" className="text-m-extra font-weight-3" colorThemeDepends={false}>
           {description}
         </Text>
       )}

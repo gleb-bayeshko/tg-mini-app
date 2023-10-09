@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import { Text } from 'shared/ui/Text'
 import './styles.css'
 
 function ProductCategoriesItem({ name, imgSrc }) {
@@ -9,9 +10,9 @@ function ProductCategoriesItem({ name, imgSrc }) {
         alt={`${name} category image`}
         className="product-categories-scroll-list-item__image"
       />
-      <p className="product-categories-scroll-list-item__title">
+      <Text className="product-categories-scroll-list-item__title">
         {name}
-      </p>
+      </Text>
     </div>
   )
 }
