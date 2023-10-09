@@ -4,7 +4,13 @@ import { Button } from 'shared/ui/Button'
 import { getClassName } from 'shared/utils'
 import './styles.css'
 
-function Counter({ onChange, buttonText = 'Add', className, initialValue }) {
+function Counter({
+  buttonText = 'Add',
+  size = 'default',
+  onChange,
+  className,
+  initialValue,
+}) {
   const [counter, setCounter] = useState(initialValue)
 
   const handleAddToCartClick = () => {
@@ -24,11 +30,15 @@ function Counter({ onChange, buttonText = 'Add', className, initialValue }) {
   }, [counter, onChange])
 
   return (
-    <div className={getClassName('product-card__add-to-cart', { [className]: !!className })}>
+    <div className={getClassName('counter', {
+      [className]: !!className ,
+      'counter_small': size === 'small'
+    })}
+    >
       <Button
         className={getClassName(
-          'product-card__add-to-cart-button',
-          { 'product-card__add-to-cart-button_hide': counter > 0 }
+          'counter__button-add',
+          { 'counter__button-add_hide': counter > 0 }
         )}
         color="yellow"
         onClick={handleAddToCartClick}
@@ -37,22 +47,22 @@ function Counter({ onChange, buttonText = 'Add', className, initialValue }) {
       </Button>
       <div
         className={getClassName(
-          'product-card__add-to-cart-counter',
-          { 'product-card__add-to-cart-counter_visible': counter > 0 }
+          'counter__controls',
+          { 'counter_visible': counter > 0 }
         )}
       >
         <Button
-          className="product-card__add-to-cart-counter-button"
+          className="counter__button"
           color="yellow"
           onClick={handleCounterDecrement}
         >
             -
         </Button>
-        <div className="product-card__add-to-cart-counter-value">
+        <div className="counter__value">
           {counter}
         </div>
         <Button
-          className="product-card__add-to-cart-counter-button"
+          className="counter__button"
           color="yellow"
           onClick={handleCounterIncrement}
         >
@@ -68,6 +78,7 @@ Counter.propTypes = {
   buttonText: PropTypes.string,
   initialValue: PropTypes.number,
   className: PropTypes.string,
+  size: PropTypes.oneOf(['default', 'small']),
 }
 
 export default Counter

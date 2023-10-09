@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Lottie as BurgerMenuLottie } from 'shared/ui/Lottie'
 import { getClassName } from 'shared/utils'
 import burgerMenuAnimation from 'shared/assets/lotties/burgerMenu/burgerMenu.json'
-import './styles.css'
+import 'app/AppLayout/Header/BurgerButton/styles.css'
 
 function BurgerButton({ className, onClick }) {
   const [isButtonOpened, setIsButtonOpened] = useState(false)

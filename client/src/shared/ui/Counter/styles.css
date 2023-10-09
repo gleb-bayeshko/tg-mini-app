@@ -1,10 +1,10 @@
-.product-card__add-to-cart {
+.counter {
     position: relative;
     border-radius: var(--button-border-radius);
     background: var(--orange-primary-color);
 }
 
-.product-card__add-to-cart-button {
+.counter__button-add {
     padding: 0;
     position: relative;
     min-height: 40px;
@@ -16,12 +16,12 @@
     transition: opacity 200ms, transform 200ms;
 }
 
-.product-card__add-to-cart-button_hide {
+.counter__button-add_hide {
     opacity: 0;
     transform: scaleX(-0);
 }
 
-.product-card__add-to-cart-counter {
+.counter__controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -32,7 +32,7 @@
     z-index: 9;
 }
 
-.product-card__add-to-cart-counter-button {
+.counter__button {
     position: relative;
     min-height: 40px;
     height: 40px;
@@ -40,19 +40,34 @@
     transition: width 200ms;
 }
 
-.product-card__add-to-cart-counter-button:active {
+.counter__button:active {
     animation-name: counter-button-animation;
     animation-fill-mode: forwards;
     animation-duration: 160ms;
 }
 
-.product-card__add-to-cart-counter_visible .product-card__add-to-cart-counter-button {
+.counter_visible .counter__button {
     width: 40px;
 }
 
-.product-card__add-to-cart-counter-value {
+.counter__value {
     font-weight: 900;
     color: var(--white-color);
+}
+
+.counter_small .counter__button-add {
+    min-height: 30px;
+    height: 30px;
+}
+
+.counter_small .counter__button {
+    min-height: 30px;
+    height: 30px;
+    width: 30px;
+}
+
+.counter_small .counter__value {
+    margin-bottom: -1px;
 }
 
 @keyframes counter-button-animation {

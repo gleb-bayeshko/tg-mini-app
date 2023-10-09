@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import Overlay from 'shared/ui/Overlay/Overlay'
-import { Text } from 'shared/ui/Text'
-import { Wrapper } from 'shared/ui/Wrapper'
 import { getClassName } from 'shared/utils'
 import { DrawerMenuItem } from './DrawerMenuItem'
 import { closeDrawer } from './drawerSlice'
 import { drawerMenuItems } from './const'
+import { routerPath } from 'pages/routes/const'
 import './styles.css'
 
 function Drawer() {
@@ -18,44 +18,29 @@ function Drawer() {
 
   const renderMenuItems = () => drawerMenuItems.map(({
     id,
-    title,
-    icon,
+    name,
+    category,
+    imgSrc,
     color,
-    href
   }) => (
-    <DrawerMenuItem
-      title={title}
-      icon={icon}
-      iconColor={color}
-      href={href}
-      key={id}
-      className="drawer-menu__item"
-    />
+    <li className="drawer-menu__item-link" key={id}>
+      <Link to={category === 'cart' ? '/cart' : `${routerPath.products}/${category}`}>
+        <DrawerMenuItem
+          name={name}
+          className="drawer-menu__item"
+          imgSrc={imgSrc}
+          color={color}
+        />
+      </Link>
+    </li>
   ))
 
   return (
     <>
       <div className={getClassName('drawer', { 'drawer_open': isDrawerOpened })}>
-        <Wrapper>
-          <div className="drawer-user">
-            <div className="drawer-user__avatar">
-              <div className="drawer-user__avatar-image-container">
-                <img src="/images/avatar/avatar-default.png" className="drawer-user__avatar-image" alt="avatar" />
-              </div>
-            </div>
-            <div className="drawer-user__info">
-              <Text className="text-m drawer-user__info-name">
-                Todd Howard
-              </Text>
-              <Text className="text-sm-extra drawer-user__info-phone">
-                +91-997-160-51-12
-              </Text>
-            </div>
-          </div>
-          <div className="drawer-menu">
-            {renderMenuItems()}
-          </div>
-        </Wrapper>
+        <ul className="drawer-menu">
+          {renderMenuItems()}
+        </ul>
       </div>
       <Overlay
         isOpen={isDrawerOpened}

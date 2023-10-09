@@ -4,11 +4,11 @@ import { Drawer } from 'app/AppLayout/Drawer'
 import { toggleDrawer } from 'app/AppLayout/Drawer/drawerSlice'
 import { CartButton } from 'features/cart/CartButton'
 import { useVerticalScrollThreshold } from 'shared/hooks'
-import ArrowRightIcon from 'shared/icons/ArrowRightIcon'
-import LogoIcon from 'shared/icons/LogoIcon'
-import { BurgerButton } from 'shared/ui/BurgerButton'
+import { ArrowRightIcon } from 'shared/icons'
+import { LogoIcon } from 'shared/icons'
 import { Wrapper } from 'shared/ui/Wrapper'
 import { getClassName } from 'shared/utils'
+import { BurgerButton } from './BurgerButton'
 import { routerPath } from 'pages/routes/const'
 import './styles.css'
 
@@ -20,6 +20,7 @@ function Header () {
   const dispatch = useDispatch()
 
   const isProductPage = useMatch('/products/:category/:id')
+  const isCartPage = useMatch('/cart')
   const navigate = useNavigate()
 
   const handleBurgerButtonClick = () => {
@@ -37,7 +38,7 @@ function Header () {
         <div className="header__content">
           <div className="header__left">
             {
-              isProductPage
+              (isProductPage || isCartPage)
                 ? (
                   <div className="header__arrow-icon-container" onClick={handleArrowClick}>
                     <ArrowRightIcon className="header__arrow-icon" />
@@ -53,7 +54,7 @@ function Header () {
             <Link
               to={routerPath.home} className={getClassName('header__logo', {
                 'header__logo_shifted': isDrawerOpened,
-                'header__logo_with-arrow': isProductPage,
+                'header__logo_with-arrow': isProductPage || isCartPage,
               })}
             >
               <LogoIcon />
