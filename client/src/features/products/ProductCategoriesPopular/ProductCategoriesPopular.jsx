@@ -18,7 +18,6 @@ function ProductCategoriesPopular() {
   }, i) => (
     <Link
       key={id}
-      //TODO: Add actual routes
       to={`${routerPath.products}/${category}`}
       className="product-categories-popular__href"
     >

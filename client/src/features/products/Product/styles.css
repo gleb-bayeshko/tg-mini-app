@@ -20,6 +20,7 @@
 .product-main__image {
     width: 100%;
     max-width: 250px;
+    border-radius: var(--button-border-radius);
 }
 
 .product-main__title {
