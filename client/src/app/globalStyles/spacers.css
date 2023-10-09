@@ -29,11 +29,11 @@
     margin-bottom: var(--blocks-margin-m);
 }
 
-.block-margin-top {
+.block-margin-m-top {
     margin-top: var(--blocks-margin-m);
 }
 
-.block-margin-bottom {
+.block-margin-m-bottom {
     margin-bottom: var(--blocks-margin-m);
 }
 

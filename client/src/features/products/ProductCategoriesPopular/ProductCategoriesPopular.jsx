@@ -1,8 +1,11 @@
+import { Link } from 'react-router-dom'
 import { ArrowRightIcon } from 'shared/icons'
 import Subheader from 'shared/ui/Subheader/Subheader'
 import { Wrapper } from 'shared/ui/Wrapper'
 import { ProductCategoriesPopularItem } from './ProductCategoriesPopularItem'
 import { productCategoriesPopular, productCategoriesStyle } from './const'
+import { routerPath } from 'pages/routes/const'
+import { productCategories } from 'shared/const'
 import './styles.css'
 
 function ProductCategoriesPopular() {
@@ -13,10 +16,10 @@ function ProductCategoriesPopular() {
     title,
     description
   }, i) => (
-    <a
+    <Link
       key={id}
       //TODO: Add actual routes
-      href="/"
+      to={`${routerPath.products}/${category}`}
       className="product-categories-popular__href"
     >
       <ProductCategoriesPopularItem
@@ -27,17 +30,17 @@ function ProductCategoriesPopular() {
         title={title}
         description={description}
       >
-        {category === 'all' && (
+        {category === productCategories.all && (
           <ArrowRightIcon className="product-categories-popular__arrow" />
         )}
       </ProductCategoriesPopularItem>
-    </a>
+    </Link>
   ))
 
   return (
     <div className="product-categories-popular">
       <Wrapper>
-        <Subheader href="/">
+        <Subheader href={`${routerPath.products}/${productCategories.popular}`}>
           Popular Categories
         </Subheader>
         <div className="product-categories-popular-content">

@@ -6,8 +6,8 @@ import { getClassName } from 'shared/utils'
 import './styles.css'
 
 function Button({
-  colorType = 'default',
-  color,
+  styleType = 'filled',
+  color = 'violet',
   onClick,
   className,
   styles,
@@ -27,9 +27,10 @@ function Button({
     <button
       ref={buttonRef}
       onClick={handleButtonClick}
+      type="button"
       className={getClassName(
         'button',
-        `button_type-${colorType}`,
+        `button_style-${styleType}`,
         {
           [className]: !!className,
           [`button_color-${color}`]: !!color,
@@ -58,7 +59,7 @@ function Button({
 }
 
 Button.propTypes = {
-  colorType: PropTypes.oneOf(['default, success, danger']),
+  styleType: PropTypes.oneOf(['filled', 'outline']),
   size: PropTypes.oneOf(['sm', 'm', 'lg']),
   color: PropTypes.oneOf(['pink', 'orange', 'yellow', 'green', 'blue', 'violet', 'white']),
   onClick: PropTypes.func,

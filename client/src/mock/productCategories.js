@@ -1,42 +1,49 @@
-export const categories = [
-  {
+export const brands = {
+  superCat: {
+    name: 'Super Cat',
+    id: 1
+  },
+  catty: {
+    name: 'Catty',
+    id: 2
+  },
+  funCat: {
+    name: 'FunCat Incorporation',
+    id: 3
+  },
+  kitForCat: {
+    name: 'KitForCat',
+    id: 4
+  },
+  cateCare: {
+    name: 'Cat Care Festival',
+    id: 5
+  },
+  sweet: {
+    name: 'Sweet',
+    id: 6
+  },
+  goldenx: {
+    name: 'Goldenx',
+    id: 7
+  },
+}
+
+export const lifeStages = {
+  kitten: {
     id: 1,
-    name: 'Food',
-    category: 'food'
+    name: 'Kitten (0-12 mos)',
   },
-  {
+  adult: {
     id: 2,
-    name: 'Bowls',
-    category: 'bowls'
+    name: 'Adult (1-10 yrs)',
   },
-  {
+  senior: {
     id: 3,
-    name: 'Litter Box Fillers',
-    category: 'fillers'
+    name: 'Senior (10 yrs & Older)',
   },
-  {
+  all: {
     id: 4,
-    name: 'Toys',
-    category: 'toys'
+    name: 'All Life Stages',
   },
-  {
-    id: 5,
-    name: 'Vitamins',
-    category: 'vitamins'
-  },
-  {
-    id: 6,
-    name: 'Hygiene and care',
-    category: 'hygiene-and-care'
-  },
-  {
-    id: 7,
-    name: 'Clothes',
-    category: 'clothes'
-  },
-  {
-    id: 8,
-    name: 'Carriers',
-    category: 'carriers'
-  },
-]
+}

@@ -1,3 +1,4 @@
+export { default as capitalizeString } from './capitalizeString'
 export { default as getClassName } from './getClassName'
 export { default as isFunction } from './isFunction'
 export { default as isNumber } from './isNumber'

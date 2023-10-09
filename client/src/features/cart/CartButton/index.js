@@ -1,1 +1,1 @@
-export { default as Cart } from 'features/cart/CartButton/CartButton.jsx'
+export { default as CartButton } from 'features/cart/CartButton/CartButton.jsx'

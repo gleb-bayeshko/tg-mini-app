@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { ArrowRightIcon } from 'shared/icons'
 import { Text } from 'shared/ui/Text'
@@ -12,9 +13,9 @@ function Subheader({ children, className, href }) {
       </span>
       {
         href && (
-          <a href={href}>
+          <Link to={href}>
             <ArrowRightIcon className="subheader__arrow" />
-          </a>
+          </Link>
         )
       }
     </Text>

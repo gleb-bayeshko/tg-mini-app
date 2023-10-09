@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useMatches } from 'react-router-dom'
+import { resetFilters } from 'features/products/ProductCatalog/productCatalogSlice'
 import PropTypes from 'prop-types'
 import { getClassName } from 'shared/utils'
 import { Header } from './Header'
@@ -9,7 +11,22 @@ import './styles.css'
 function AppLayout({ children }) {
   const contentRef = useRef()
   const { isDrawerOpened } = useSelector(state => state.drawer)
+  const dispatch = useDispatch()
   const [isScrollLocked, setIsScrollLocked] = useState(false)
+
+  const match = useMatches()
+
+  useEffect(() => {
+    if (match.length === 0) {
+      return
+    }
+
+    const currentPath = match.at(-1)
+
+    if (!currentPath.params.category) {
+      dispatch(resetFilters())
+    }
+  }, [match, dispatch])
 
   useEffect(() => {
     if (isScrollLocked) {
@@ -28,8 +45,10 @@ function AppLayout({ children }) {
     >
       <div className="app-layout" ref={contentRef}>
         <Header />
-        <div className={getClassName('app-layout__content', { 'app-layout__content_shifted': isDrawerOpened })}>
-          {children}
+        <div className="app-layout__content">
+          <div className={getClassName('app-layout__container', { 'app-layout__container_shifted': isDrawerOpened })}>
+            {children}
+          </div>
         </div>
       </div>
     </ScrollContext.Provider>

@@ -1,9 +1,11 @@
+import { Link } from 'react-router-dom'
 import { ProductCategoriesItem } from './ProductCategoriesItem'
-import { productCategories } from './const'
+import { productCategoriesScroll } from './const'
+import { routerPath } from 'pages/routes/const'
 import './styles.css'
 
 function ProductCategoriesScroll() {
-  const renderCategories = () => productCategories.map(({
+  const renderCategories = () => productCategoriesScroll.map(({
     id,
     name,
     category,
@@ -11,13 +13,13 @@ function ProductCategoriesScroll() {
   }) => (
     <li className="product-categories-scroll-list__item" key={id}>
       {/*TODO: Add actual routes*/}
-      <a href="/">
+      <Link to={`${routerPath.products}/${category}`}>
         <ProductCategoriesItem
           name={name}
           category={category}
           imgSrc={imgSrc}
         />
-      </a>
+      </Link>
     </li>
   ))
 
