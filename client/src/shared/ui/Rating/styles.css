@@ -3,6 +3,14 @@
     margin-right: var(--spacing-1);
 }
 
+.theme-dark .rating-star {
+    color: var(--white-color-transaprent);
+}
+
 .rating-star_checked {
+    color: var(--yellow-primary-color);
+}
+
+.theme-dark .rating-star_checked {
     color: var(--yellow-primary-color);
 }

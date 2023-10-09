@@ -9,3 +9,15 @@
 .text_white {
     color: var(--white-color);
 }
+
+.text_black.text_dark {
+    color: var(--white-color);
+}
+
+.text_gray.text_dark {
+    color: var(--white-color-transaprent);
+}
+
+.text_white.text_dark {
+    color: var(--black-color);
+}

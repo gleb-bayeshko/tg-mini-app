@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useMatches } from 'react-router-dom'
 import { resetFilters } from 'features/products/ProductCatalog/productCatalogSlice'
 import PropTypes from 'prop-types'
+import { useTelegram } from 'shared/hooks'
 import { getClassName } from 'shared/utils'
 import { Header } from './Header'
-import { ScrollContext } from './context'
+import { ColorThemeContext, ScrollContext } from './context'
 import './styles.css'
 
 function AppLayout({ children }) {
@@ -13,6 +14,8 @@ function AppLayout({ children }) {
   const { isDrawerOpened } = useSelector(state => state.drawer)
   const dispatch = useDispatch()
   const [isScrollLocked, setIsScrollLocked] = useState(false)
+
+  const { isDarkTheme } = useTelegram()
 
   const match = useMatches()
 
@@ -36,6 +39,14 @@ function AppLayout({ children }) {
     }
   }, [isScrollLocked])
 
+  useEffect(() => {
+    if (isDarkTheme) {
+      document.body.classList.add('theme-dark')
+    } else {
+      document.body.classList.remove('theme-dark')
+    }
+  }, [isDarkTheme])
+
   return (
     <ScrollContext.Provider
       value={{
@@ -43,14 +54,16 @@ function AppLayout({ children }) {
         isScrollLocked
       }}
     >
-      <div className="app-layout" ref={contentRef}>
-        <Header />
-        <div className="app-layout__content">
-          <div className={getClassName('app-layout__container', { 'app-layout__container_shifted': isDrawerOpened })}>
-            {children}
+      <ColorThemeContext.Provider value={{ isDarkTheme }}>
+        <div className="app-layout" ref={contentRef}>
+          <Header />
+          <div className="app-layout__content">
+            <div className={getClassName('app-layout__container', { 'app-layout__container_shifted': isDrawerOpened })}>
+              {children}
+            </div>
           </div>
         </div>
-      </div>
+      </ColorThemeContext.Provider>
     </ScrollContext.Provider>
   )
 }

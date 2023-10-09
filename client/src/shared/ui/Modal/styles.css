@@ -10,6 +10,10 @@
     background: var(--white-color);
 }
 
+.theme-dark .modal {
+    background: var(--black-dark-color);
+}
+
 .modal_open {
     animation: modal-open-animation;
     animation-duration: 250ms;
@@ -39,6 +43,10 @@
 
 .modal__close-icon svg {
     width: 20px;
+}
+
+.theme-dark .modal__close-icon path {
+    fill: white;
 }
 
 .modal__content {
