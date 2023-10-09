@@ -1,5 +1,4 @@
 .product-catalog-sort-container {
-    background: var(--white-color);
     padding: var(--spacing-5) 0;
 }
 
@@ -21,6 +20,11 @@
 .product-catalog-sort__sort-icon,
 .product-catalog-sort__filter-icon {
     fill: var(--gray-color);
+}
+
+.theme-dark .product-catalog-sort__sort-icon,
+.theme-dark .product-catalog-sort__filter-icon {
+    fill: var(--white-color-transparent-extra);
 }
 
 .product-catalog-sort__sort-icon {

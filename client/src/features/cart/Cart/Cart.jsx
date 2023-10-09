@@ -25,7 +25,7 @@ function Cart() {
       } = products.find(({ id: productId }) => productId === productInCartId)
 
       return (
-        <Card key={id} className="cart__product-card">
+        <Card key={id} className="cart__product-card" color="white">
           <ProductCard
             id={id}
             price={price}
@@ -52,7 +52,7 @@ function Cart() {
           cart?.length > 0 && (
             <>
               {renderProducts()}
-              <Card className="cart__product-card">
+              <Card className="cart__product-card" color="white">
                 <div className="cart__product-total-container">
                   <Text className="cart__product-total-title h5">
                     Total
