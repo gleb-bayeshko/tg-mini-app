@@ -1,0 +1,8 @@
+.rating-star {
+    color: var(--gray-color-transparent-extra);
+    margin-right: var(--spacing-1);
+}
+
+.rating-star_checked {
+    color: var(--yellow-primary-color);
+}

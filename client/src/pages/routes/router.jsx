@@ -1,7 +1,8 @@
 import { createBrowserRouter, Navigate, redirect } from 'react-router-dom'
 import App from 'app/App'
 import MainPage from 'pages/MainPage.jsx'
-import ProductsPage from 'pages/ProductsPage'
+import ProductPage from 'pages/ProductPage.jsx'
+import ProductsPage from 'pages/ProductsPage.jsx'
 import { routerPath } from 'pages/routes/const.js'
 import { productCategories } from 'shared/const/productCategories.js'
 
@@ -25,7 +26,11 @@ const router = createBrowserRouter([
           {
             path: ':category',
             element: <ProductsPage />,
-            loader: handleProductCategoryLoader
+            loader: handleProductCategoryLoader,
+          },
+          {
+            path: ':category/:id',
+            element: <ProductPage />,
           }
         ]
       }

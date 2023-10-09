@@ -1,49 +1,49 @@
-export const brands = [
-  {
-    id: 1,
+export const brands = {
+  superCat: {
     name: 'Super Cat',
+    id: 1
   },
-  {
-    id: 2,
+  catty: {
     name: 'Catty',
+    id: 2
   },
-  {
-    id: 3,
+  funCat: {
     name: 'FunCat Incorporation',
+    id: 3
   },
-  {
-    id: 4,
+  kitForCat: {
     name: 'KitForCat',
+    id: 4
   },
-  {
-    id: 5,
+  cateCare: {
     name: 'Cat Care Festival',
+    id: 5
   },
-  {
-    id: 6,
+  sweet: {
     name: 'Sweet',
+    id: 6
   },
-  {
-    id: 7,
-    name: 'Goldenz',
+  goldenx: {
+    name: 'Goldenx',
+    id: 7
   },
-]
+}
 
-export const lifeStages = [
-  {
+export const lifeStages = {
+  kitten: {
     id: 1,
     name: 'Kitten (0-12 mos)',
   },
-  {
+  adult: {
     id: 2,
     name: 'Adult (1-10 yrs)',
   },
-  {
+  senior: {
     id: 3,
     name: 'Senior (10 yrs & Older)',
   },
-  {
+  all: {
     id: 4,
     name: 'All Life Stages',
   },
-]
+}

@@ -2,6 +2,7 @@
     padding: var(--spacing-5) var(--spacing-6);
     font-weight: 500;
     transition: background 300ms;
+    cursor: pointer;
 }
 
 .dropdown-item_selected {

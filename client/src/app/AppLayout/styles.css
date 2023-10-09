@@ -8,8 +8,8 @@
 
 .app-layout__content {
     min-height: 100%;
-    overflow-x: hidden;
     max-width: 100%;
+    overflow-x: hidden;
 }
 
 .app-layout__content_shifted {

@@ -31,14 +31,28 @@
     border-width: 1px;
 }
 
-.product-filters-modal__price-input .product-filters-modal__price-min {
-}
-
-.product-filters-modal__price-input .product-filters-modal__price-max {
-}
-
 .product-filters-modal__price-input {
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 12px;
+}
+
+.product-filters-modal__button-controls {
+    display: flex;
+    padding-top: var(--spacing-4);
+}
+
+.product-filters-modal__clear-button {
+    margin-right: var(--spacing-5);
+    margin-left: calc(-1 * var(--spacing-5));
+    padding: 0;
+    width: 0;
+    transition: width 190ms, opacity 190ms, margin-left 190ms;
+    opacity: 0;
+}
+
+.product-filters-modal__clear-button_open {
+    width: 120px;
+    opacity: 1;
+    margin-left: 0;
 }

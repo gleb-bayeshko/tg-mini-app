@@ -1,6 +1,7 @@
 :root {
     --cart-button-z-index: 10;
     --header-z-index: 300;
+    --filters-z-index: 310;
     --overlay-z-index: 320;
     --drawer-z-index: 350;
     --burger-button-z-index: 400;

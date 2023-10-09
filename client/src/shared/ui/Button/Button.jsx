@@ -27,6 +27,7 @@ function Button({
     <button
       ref={buttonRef}
       onClick={handleButtonClick}
+      type="button"
       className={getClassName(
         'button',
         `button_style-${styleType}`,

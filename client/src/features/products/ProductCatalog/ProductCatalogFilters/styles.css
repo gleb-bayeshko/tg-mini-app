@@ -1,3 +1,8 @@
+.product-catalog-sort-container {
+    background: var(--white-color);
+    padding: var(--spacing-5) 0;
+}
+
 .product-catalog-sort {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

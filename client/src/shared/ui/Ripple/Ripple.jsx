@@ -14,8 +14,8 @@ const Ripple = forwardRef(
       const diameter = Math.max(button.width, button.height)
       const radius = diameter / 2
 
-      const x = e.pageX - button.x - radius
-      const y = e.pageY - button.y - radius
+      const x = e.clientX - button.x - radius
+      const y = e.clientY - button.y - radius
 
       const newRipple = {
         x,
@@ -59,5 +59,7 @@ const Ripple = forwardRef(
     )
   }
 )
+
+Ripple.propTypes = { color: PropTypes.string }
 
 export default Ripple

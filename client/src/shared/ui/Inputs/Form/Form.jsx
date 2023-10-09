@@ -12,6 +12,7 @@ const actions = {
   RESET_VALUES: 'RESET_VALUES',
   SET_IS_SUBMITTING: 'SET_IS_SUBMITTING',
   SET_IS_FORM_VALID: 'SET_IS_FORM_VALID',
+  SET_IS_ANY_VALUE: 'SET_IS_ANY_VALUE',
   SET_ERRORS: 'SET_ERRORS',
   REMOVE_ERROR: 'REMOVE_ERROR',
 }
@@ -45,8 +46,7 @@ function reducer(state, action) {
     case actions.RESET_VALUES:
       return {
         ...state,
-        values: { ...action.payload },
-        errors: {}
+        ...action.payload,
       }
     case actions.SET_IS_SUBMITTING:
       return {
@@ -74,6 +74,11 @@ function reducer(state, action) {
           [action.payload.name]: undefined
         }
       }
+    case actions.SET_IS_ANY_VALUE:
+      return {
+        ...state,
+        isAnyValue: action.payload
+      }
     default:
       return { ...state }
   }
@@ -92,6 +97,7 @@ const Form = forwardRef(
       errors: {},
       isSubmitting: false,
       isFormValid: true,
+      isAnyValue: false,
     }),[])
 
     const [state, dispatch] = useReducer(reducer, { ...initialState, values: initialValues })
@@ -208,6 +214,14 @@ const Form = forwardRef(
           ? validationFunc(state.values)
           : true,
       })
+
+      const values = Object.values(state.values)
+      const isValuesEmpty = values.some(val => val.length > 0)
+
+      dispatch({
+        type: actions.SET_IS_ANY_VALUE,
+        payload: isValuesEmpty
+      })
     }, [state.values, validationFunc])
 
     return (
@@ -215,7 +229,11 @@ const Form = forwardRef(
         <form onSubmit={handleSubmit} className={className}>
           {
             isFunction(children)
-              ? children({ isFormValid: state.isFormValid, isSubmitting: state.isSubmitting })
+              ? children({
+                isFormValid: state.isFormValid,
+                isSubmitting: state.isSubmitting,
+                isAnyValue: state.isAnyValue,
+              })
               : children
           }
         </form>

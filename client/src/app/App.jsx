@@ -1,5 +1,5 @@
 import { Provider } from 'react-redux'
-import { Outlet } from 'react-router-dom'
+import { Outlet, ScrollRestoration } from 'react-router-dom'
 import { AppLayout } from './AppLayout'
 import { store } from './store'
 import './globalStyles/index.css'
@@ -14,6 +14,7 @@ function App() {
             <Outlet />
           </div>
         </AppLayout>
+        <ScrollRestoration />
       </div>
     </Provider>
   )

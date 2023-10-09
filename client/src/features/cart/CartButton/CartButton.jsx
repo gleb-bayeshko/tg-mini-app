@@ -19,7 +19,7 @@ function CartButton () {
       <div className="cart__background" />
       <div className="cart__animation-shadow" />
       {count > 0 && (
-        <div className="cart__products-count">{count}</div>
+        <div className="cart__products-count">{count < 100 ? count : '99+'}</div>
       )}
     </div>
   )
