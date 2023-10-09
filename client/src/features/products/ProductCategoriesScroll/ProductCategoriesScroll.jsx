@@ -12,11 +12,9 @@ function ProductCategoriesScroll() {
     imgSrc
   }) => (
     <li className="product-categories-scroll-list__item" key={id}>
-      {/*TODO: Add actual routes*/}
       <Link to={`${routerPath.products}/${category}`}>
         <ProductCategoriesItem
           name={name}
-          category={category}
           imgSrc={imgSrc}
         />
       </Link>
