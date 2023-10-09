@@ -1,26 +1,26 @@
-import { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { CartIcon } from 'shared/icons'
 import { getClassName } from 'shared/utils'
-import 'features/cart/CartButton/styles.css'
+import useCart from '../Cart/useCart'
+import { routerPath } from 'pages/routes/const'
+import './styles.css'
 
 function CartButton () {
-  //TODO: Implement increase of products count with store
-  const { cart } = useSelector(state => state.productCatalog)
-  const productsCount = cart?.reduce((count, { count: currentCount }) => count + currentCount, 0)
+  const { productsCount } = useCart()
 
   return (
-    <div
+    <Link
+      to={routerPath.cart}
       key={productsCount}
-      className={getClassName('cart', { 'cart_active': productsCount > 0 })}
+      className={getClassName('cart-button', { 'cart-button_active': productsCount > 0 })}
     >
-      <CartIcon className="cart-icon" />
-      <div className="cart__background" />
-      <div className="cart__animation-shadow" />
+      <CartIcon className="cart-button-icon" />
+      <div className="cart-button__background" />
+      <div className="cart-button__animation-shadow" />
       {productsCount > 0 && (
-        <div className="cart__products-count">{productsCount < 100 ? productsCount : '99+'}</div>
+        <div className="cart-button__products-count">{productsCount < 100 ? productsCount : '99+'}</div>
       )}
-    </div>
+    </Link>
   )
 }
 

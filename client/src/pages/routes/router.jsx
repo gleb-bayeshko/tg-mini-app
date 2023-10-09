@@ -1,5 +1,6 @@
 import { createBrowserRouter, Navigate, redirect } from 'react-router-dom'
 import App from 'app/App'
+import CartPage from 'pages/CartPage'
 import MainPage from 'pages/MainPage.jsx'
 import ProductPage from 'pages/ProductPage.jsx'
 import ProductsPage from 'pages/ProductsPage.jsx'
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             element: <ProductPage />,
           }
         ]
+      },
+      {
+        path: routerPath.cart,
+        element: <CartPage />
       }
     ]
   },

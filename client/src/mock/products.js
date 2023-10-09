@@ -11,7 +11,7 @@ export const products = [
     brand: brands.superCat,
     lifeStage: lifeStages.adult,
     category: productCategories.fillers,
-    imgSrc: 'https://zoobaza.by/image/cache/catalog/products/napolnitel-dlya-tualetov/sima-15-700x700.jpg'
+    imgSrc:  '/images/mock/products/filler1.jpg'
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ export const products = [
     lifeStage: lifeStages.kitten,
     category: productCategories.food,
     isPopular: true,
-    imgSrc: 'https://tvoydom.ru/photos/1000943979/1000943979_3.jpg'
+    imgSrc:  '/images/mock/products/food1.jpg'
   },
   {
     id: 3,
@@ -35,7 +35,7 @@ export const products = [
     lifeStage: lifeStages.all,
     category: productCategories.carriers,
     isPopular: true,
-    imgSrc: 'https://cdn1.ozone.ru/s3/multimedia-m/6106157614.jpg'
+    imgSrc: '/images/mock/products/carrier1.jpg'
   },
   {
     id: 4,
@@ -46,7 +46,7 @@ export const products = [
     brand: brands.goldenx,
     lifeStage: lifeStages.senior,
     category: productCategories.hygiene,
-    imgSrc: 'https://img.freepik.com/premium-vector/bottles-of-shampoo-or-lotion-illustration-contains-gradient-mesh_273784-410.jpg?size=626&ext=jpg'
+    imgSrc: '/images/mock/products/hygiene1.png'
   },
   {
     id: 5,
@@ -58,7 +58,7 @@ export const products = [
     lifeStage: lifeStages.all,
     category: productCategories.bowls,
     isPopular: true,
-    imgSrc: 'https://myzoodom.ru/image/cache/catalog/image/cache/catalog/incoming/upload/iblock/1d5/1d52c42ece467603f4e0b2a4dd70f823-1000x1000.webp'
+    imgSrc: '/images/mock/products/bowl1.jpg'
   },
   {
     id: 6,
@@ -69,7 +69,7 @@ export const products = [
     brand: brands.sweet,
     lifeStage: lifeStages.all,
     category: productCategories.vitamins,
-    imgSrc: 'https://sc04.alicdn.com/kf/HTB18H4gXIj_B1NjSZFHq6yDWpXay.jpg'
+    imgSrc: '/images/mock/products/vitamin1.jpg'
   },
   {
     id: 7,
@@ -81,7 +81,7 @@ export const products = [
     lifeStage: lifeStages.kitten,
     category: productCategories.toys,
     isPopular: true,
-    imgSrc: 'https://sc04.alicdn.com/kf/HTB18EpXazQnBKNjSZSgq6xHGXXax.jpg'
+    imgSrc: '/images/mock/products/toy1.jpg'
   },
   {
     id: 8,
@@ -92,6 +92,6 @@ export const products = [
     brand: brands.superCat,
     lifeStage: lifeStages.adult,
     category: productCategories.clothes,
-    imgSrc: 'https://i.pinimg.com/736x/f7/80/de/f780de8a5f33929f0c150878b0a4a6f7--cute-kittens-warm-coat.jpg'
+    imgSrc: '/images/mock/products/clothes1.jpg'
   }
 ]

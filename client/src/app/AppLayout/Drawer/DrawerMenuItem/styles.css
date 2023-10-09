@@ -4,6 +4,44 @@
     padding: var(--spacing-6) 0;
 }
 
+.drawer-menu-item__container {
+    display: flex;
+}
+
+.drawer-menu-item__image-container {
+    padding: 5px;
+    background: var(--pink-primary-color);
+    border-radius: var(--button-border-radius);
+    margin-right: var(--spacing-7);
+}
+
+.drawer-menu-item__image {
+    width: 20px;
+    filter: brightness(0) invert(1);
+}
+
+.drawer-menu-item__title {
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .drawer-menu-item__icon {
 
 }
@@ -21,26 +59,30 @@
     margin-right: var(--spacing-5);
 }
 
-.drawer-menu-item__icon-container_pink {
+.drawer-menu-item__image-container_pink {
     background-color: var(--pink-primary-color);
 }
 
-.drawer-menu-item__icon-container_orange {
+.drawer-menu-item__image-container_orange {
     background-color: var(--orange-primary-color);
 }
 
-.drawer-menu-item__icon-container_yellow {
+.drawer-menu-item__image-container_yellow {
     background-color: var(--yellow-primary-color);
 }
 
-.drawer-menu-item__icon-container_green {
+.drawer-menu-item__image-container_green {
     background-color: var(--green-primary-color);
 }
 
-.drawer-menu-item__icon-container_blue {
+.drawer-menu-item__image-container_blue {
     background-color: var(--blue-primary-color);
 }
 
-.drawer-menu-item__icon-container_violet {
+.drawer-menu-item__image-container_violet {
     background-color: var(--violet-primary-color);
+}
+
+.drawer-menu-item__image-container_transparent {
+    background-color: transparent;
 }
