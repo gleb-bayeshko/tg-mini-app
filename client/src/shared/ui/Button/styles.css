@@ -133,7 +133,10 @@
     color: var(--gray-color)
 }
 
-
+.theme-dark .button_style-outline.button_color-white {
+    border-color: var(--white-color-transaprent);
+    color: var(--white-color-transparent-extra)
+}
 
 
 .button:disabled {

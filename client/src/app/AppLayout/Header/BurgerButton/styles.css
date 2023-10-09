@@ -5,3 +5,7 @@
     cursor: pointer;
 }
 
+.burger-button_dark .burger-button__lottie {
+   filter: invert(1);
+}
+

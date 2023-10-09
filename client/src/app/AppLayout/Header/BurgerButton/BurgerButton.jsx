@@ -4,9 +4,11 @@ import PropTypes from 'prop-types'
 import { Lottie as BurgerMenuLottie } from 'shared/ui/Lottie'
 import { getClassName } from 'shared/utils'
 import burgerMenuAnimation from 'shared/assets/lotties/burgerMenu/burgerMenu.json'
+import { useColorTheme } from 'app/AppLayout/context'
 import 'app/AppLayout/Header/BurgerButton/styles.css'
 
 function BurgerButton({ className, onClick }) {
+  const { isDarkTheme } = useColorTheme()
   const [isButtonOpened, setIsButtonOpened] = useState(false)
   const { isDrawerOpened } = useSelector(state => state.drawer)
   const ref = useRef()
@@ -31,6 +33,7 @@ function BurgerButton({ className, onClick }) {
     <div
       className={getClassName('burger-button' , {
         'burger-button_opened': isButtonOpened,
+        'burger-button_dark': isDarkTheme,
         [className]: !!className
       } )}
       onClick={handleBurgerClick}
@@ -40,6 +43,7 @@ function BurgerButton({ className, onClick }) {
         animationData={burgerMenuAnimation}
         styles={{ width: 55 }}
         animationSpeed={2}
+        className="burger-button__lottie"
       />
     </div>
   )

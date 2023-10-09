@@ -64,6 +64,10 @@
     background-color: var(--white-color);
 }
 
+.theme-dark .card_white {
+    background-color: var(--black-dark-color);
+}
+
 .card_white.card_outline-dashed {
     border: 3px dashed var(--black-color);
 }
