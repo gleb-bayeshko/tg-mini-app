@@ -13,6 +13,6 @@ export default defineConfig(({ mode }) => {
       basicSsl(),
     ],
     resolve: { extensions: ['.js', '.jsx'] },
-    server: { host: isDev, https: isDev }
+    server: { host: isDev, https: isDev },
   }
 })

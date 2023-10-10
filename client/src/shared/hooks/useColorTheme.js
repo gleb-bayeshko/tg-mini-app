@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react'
 
-function useTelegram() {
+function useColorTheme() {
   const [isDarkTheme, setIsDarkTheme] = useState()
 
   useEffect(() => {
     window.Telegram.WebApp.onEvent('themeChanged', function () {
       setIsDarkTheme(this.colorScheme === 'dark')
-      console.log(this)
     })
 
     const { colorScheme } = window.Telegram?.WebApp
@@ -14,7 +13,7 @@ function useTelegram() {
     setIsDarkTheme(colorScheme)
   }, [])
 
-  return { isDarkTheme }
+  return isDarkTheme
 }
 
-export default useTelegram
+export default useColorTheme

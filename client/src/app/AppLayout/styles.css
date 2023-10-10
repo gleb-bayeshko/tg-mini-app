@@ -2,6 +2,10 @@
     overflow: hidden;
 }
 
+.theme-dark {
+    background: #17212b;
+}
+
 .app-layout {
     height: 100%;
 }

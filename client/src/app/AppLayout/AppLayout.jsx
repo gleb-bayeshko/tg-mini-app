@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useMatches } from 'react-router-dom'
 import { resetFilters } from 'features/products/ProductCatalog/productCatalogSlice'
 import PropTypes from 'prop-types'
-import { useTelegram } from 'shared/hooks'
+import { useColorTheme } from 'shared/hooks'
 import { getClassName } from 'shared/utils'
 import { Header } from './Header'
 import { ColorThemeContext, ScrollContext } from './context'
@@ -15,7 +15,7 @@ function AppLayout({ children }) {
   const dispatch = useDispatch()
   const [isScrollLocked, setIsScrollLocked] = useState(false)
 
-  const { isDarkTheme } = useTelegram()
+  const isDarkTheme = useColorTheme()
 
   const match = useMatches()
 

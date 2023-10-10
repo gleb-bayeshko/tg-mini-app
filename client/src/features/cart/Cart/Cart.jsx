@@ -1,6 +1,10 @@
-import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { useTelegramContext } from 'app/Telegram'
+import { clearInvoiceLink, sendCartToInvoice } from 'features/cart/Cart/cartSlice'
 import { ProductCard } from 'features/products/ProductCard'
+import { MOCK_PROMO } from 'features/promo/PromoBanner/PromoBannerModal/PromoBannerModal'
 import { products } from 'mock/products'
 import { Button } from 'shared/ui/Button'
 import { Card } from 'shared/ui/Card'
@@ -10,11 +14,57 @@ import useCart from './useCart'
 import './styles.css'
 
 function Cart() {
-  const { cart } = useSelector(state => state.productCatalog)
+  const { products: productsInCart, invoiceLink } = useSelector(state => state.cart)
   const { totalPrice } = useCart()
+  const { mainButton, tgApp, cloudStorage } = useTelegramContext()
+  const [isCartEmpty, setIsCartEmpty] = useState(true)
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    isCartEmpty
+      ? mainButton.close()
+      : mainButton.open()
+
+    return () => {
+      mainButton.close()
+    }
+  }, [isCartEmpty, mainButton])
+
+  useEffect(() => {
+    mainButton.setText('Make order')
+  }, [])
+
+  useEffect(() => {
+    if (invoiceLink) {
+      dispatch(clearInvoiceLink())
+      tgApp.openInvoice(invoiceLink, status => {
+        if (status === 'paid') {
+          tgApp.close()
+        } else if (status === 'failed') {
+
+        }
+      })
+    }
+  }, [invoiceLink])
+
+  useEffect(() => {
+    const handleMainButtonClick = () => {
+      dispatch(sendCartToInvoice())
+    }
+    window.addEventListener('tgMainButtonClick', handleMainButtonClick)
+
+    return () => {
+      window.removeEventListener('tgMainButtonClick', handleMainButtonClick)
+    }
+  }, [dispatch])
+
+  useEffect(() => {
+    setIsCartEmpty(productsInCart.length === 0)
+  }, [productsInCart.length])
 
   const renderProducts = () => {
-    return cart?.map(({ id: productInCartId, count }) => {
+    return productsInCart?.map(({ id: productInCartId, count }) => {
       const {
         id,
         imgSrc,
@@ -49,7 +99,7 @@ function Cart() {
           Cart
         </Text>
         {
-          cart?.length > 0 && (
+          !isCartEmpty && (
             <>
               {renderProducts()}
               <Card className="cart__product-card" color="white">
@@ -61,16 +111,12 @@ function Cart() {
                     {`$${totalPrice}`}
                   </Text>
                 </div>
-
-                <Button color="green" className="cart__product-total-button">
-                  Order
-                </Button>
               </Card>
             </>
           )
         }
         {
-          cart?.length === 0 && (
+          isCartEmpty && (
             <>
               <div className="cart__product-empty-image-container">
                 <img src="/images/cart/cartEmpty.png" className="cart__product-empty-image" alt="avatar" />

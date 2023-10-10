@@ -40,7 +40,7 @@
 
     --black-color: #22343C;
     --black-dark-color: #1a3641;
-    --black-dark-contrast-color: #051517;
+    --black-dark-contrast-color: #17212b;
     --black-dark-color-transparent: rgba(26, 40, 47, 0.6);
     --black-dark-color-transparent-extra: rgba(26, 40, 47, 0.2);
 
@@ -49,7 +49,7 @@
     --gray-color-transparent-extra: rgba(48, 68, 78, 0.2);
 
     --color-disabled:  rgba(48, 68, 78, 0.05);
-    --color-error: #f8252f;
+    --color-error: #fd5f64;
 
     --header-background-color: var(--white-color);
     --product-filters-background-color: var(--white-color);
