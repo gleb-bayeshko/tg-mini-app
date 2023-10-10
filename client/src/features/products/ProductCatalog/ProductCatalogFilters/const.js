@@ -7,12 +7,12 @@ export const sortCategories = {
 export const sortFilters = [
   {
     id: 1,
-    name: 'Price: High to Low',
+    name: 'High to Low',
     category: sortCategories.priceHighToLow,
   },
   {
     id: 2,
-    name: 'Price: Low to High',
+    name: 'Low to High',
     category: sortCategories.priceLowToHigh,
   },
   {
