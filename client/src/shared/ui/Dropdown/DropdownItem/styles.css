@@ -1,0 +1,11 @@
+.dropdown-item {
+    padding: var(--spacing-5) var(--spacing-6);
+    font-weight: 500;
+    transition: background 300ms;
+    cursor: pointer;
+}
+
+.dropdown-item_selected {
+    background: var(--violet-primary-color);
+    color: var(--white-color)
+}

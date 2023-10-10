@@ -1,0 +1,144 @@
+.button {
+    padding: var(--spacing-6) var(--spacing-6);
+    position: relative;
+    overflow: hidden;
+    transition: background 400ms, opacity 300ms;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white-color);
+    font-size: var(--font-size-3);
+    font-weight: 700;
+    outline: 0;
+    border: 0;
+    border-radius: var(--button-border-radius);
+    cursor: pointer;
+}
+
+.button__content {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+
+
+.button_style-filled.button_color-pink {
+    background-color: var(--pink-primary-color);
+}
+
+.button_style-filled.button_color-orange {
+    background-color: var(--orange-primary-color);
+}
+
+.button_style-filled.button_color-yellow {
+    background-color: var(--yellow-primary-color);
+}
+
+.button_style-filled.button_color-green {
+    background-color: var(--green-primary-color);
+}
+
+.button_style-filled.button_color-blue {
+    background-color: var(--blue-primary-color);
+}
+
+.button_style-filled.button_color-violet {
+    background-color: var(--violet-primary-color);
+}
+
+.button_style-filled.button_color-white {
+    background-color: var(--white-color);
+    color: var(--pink-primary-color);
+}
+
+
+
+.button_style-outline.button_color-pink,
+.button_style-outline.button_color-orange,
+.button_style-outline.button_color-yellow,
+.button_style-outline.button_color-green,
+.button_style-outline.button_color-violet,
+.button_style-outline.button_color-blue,
+.button_style-outline.button_color-white {
+    background-color: transparent;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.button_style-outline.button_color-pink {
+    background-color: transparent;
+    border-color: var(--pink-primary-color-contrast);
+    color: var(--pink-primary-color-contrast)
+}
+
+.button_style-outline.button_color-pink .ripple span {
+    background: var(--pink-primary-color-transparent);
+}
+
+.button_style-outline.button_color-orange {
+    background-color: transparent;
+    border-color: var(--orange-primary-color-contrast);
+    color: var(--orange-primary-color-contrast)
+}
+
+.button_style-outline.button_color-orange .ripple span {
+    background: var(--orange-primary-color-transparent);
+}
+
+.button_style-outline.button_color-yellow {
+    background-color: transparent;
+    border-color: var(--yellow-primary-color-contrast);
+    color: var(--yellow-primary-color-contrast)
+}
+
+.button_style-outline.button_color-yellow .ripple span {
+    background: var(--yellow-primary-color-transparent);
+}
+
+.button_style-outline.button_color-green {
+    background-color: transparent;
+    border-color: var(--green-primary-color-contrast);
+    color: var(--green-primary-color-contrast)
+}
+
+.button_style-outline.button_color-green .ripple span {
+    background: var(--green-primary-color-transparent);
+}
+
+.button_style-outline.button_color-blue {
+    background-color: transparent;
+    border-color: var(--blue-primary-color-contrast);
+    color: var(--blue-primary-color-contrast)
+}
+
+.button_style-outline.button_color-blue .ripple span {
+    background: var(--blue-primary-color-transparent);
+}
+
+.button_style-outline.button_color-violet {
+    background-color: transparent;
+    border-color: var(--violet-primary-color-contrast);
+    color: var(--violet-primary-color-contrast)
+}
+
+.button_style-outline.button_color-violet .ripple span {
+    background: var(--violet-primary-color-transparent-extra);
+}
+
+.button_style-outline.button_color-white {
+    background-color: transparent;
+    border-color: var(--gray-color-transparent);
+    color: var(--gray-color)
+}
+
+.theme-dark .button_style-outline.button_color-white {
+    border-color: var(--white-color-transaprent);
+    color: var(--white-color-transparent-extra)
+}
+
+
+.button:disabled {
+    opacity: 0.4;
+}

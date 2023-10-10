@@ -1,0 +1,28 @@
+.scroll-locked {
+    overflow: hidden;
+}
+
+.theme-dark {
+    background: #17212b;
+}
+
+.app-layout {
+    height: 100%;
+}
+
+.app-layout__content {
+    min-height: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.app-layout__content_shifted {
+}
+
+.app-layout__container {
+    transition: transform 250ms;
+}
+
+.app-layout__container_shifted {
+    transform: translateX(var(--drawer-width));
+}

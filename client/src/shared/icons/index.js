@@ -1,0 +1,7 @@
+export { default as ArrowRightIcon } from './ArrowRightIcon'
+export { default as CartIcon } from './CartIcon'
+export { default as CheckboxIcon } from './CheckboxIcon'
+export { default as CloseIcon } from './CloseIcon'
+export { default as FilterIcon } from './FilterIcon'
+export { default as LogoIcon } from './LogoIcon'
+export { default as SortIcon } from './SortIcon'
