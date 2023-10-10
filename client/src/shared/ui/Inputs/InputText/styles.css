@@ -9,7 +9,7 @@
 }
 
 .theme-dark .input {
-    background: var(--black-dark-contrast-color);
+    background: var(--gray-color-transparent);
     color: var(--white-color)
 }
 
@@ -25,4 +25,8 @@
 
 .input::placeholder {
     color: var(--gray-color-transparent);
+}
+
+.theme-dark .input::placeholder {
+    color: var(--white-color-transaprent);
 }

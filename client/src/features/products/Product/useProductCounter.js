@@ -1,9 +1,10 @@
 import { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { removeProductFromCart, setProductWithCount } from '../ProductCatalog/productCatalogSlice'
+import { addProductToCartWithCount,removeProductFromCart } from 'features/cart/Cart/cartSlice'
+import { products } from 'mock/products'
 
 function useProductCounter(id) {
-  const { cart } = useSelector(state => state.productCatalog)
+  const { products: productsInCart } = useSelector(state => state.cart)
   const dispatch = useDispatch()
 
   const handleCounterChange = useCallback(count => {
@@ -13,11 +14,13 @@ function useProductCounter(id) {
       return
     }
 
-    dispatch(setProductWithCount({ count, id }))
+    const { name, price } = products.find(({ id: productId }) => `${productId}` === `${id}`)
+
+    dispatch(addProductToCartWithCount({ count, id, name, price }))
   }, [id, dispatch])
 
   const getInitialCounterValue = () => {
-    const productInCart = cart.find(({ id: inCartId }) => inCartId === +id)
+    const productInCart = productsInCart.find(({ id: inCartId }) => inCartId === +id)
 
     if (productInCart) {
       return +productInCart.count
