@@ -3,5 +3,8 @@
   "version": "1.0.0",
   "description": "Mini App for the Telegram Contest",
   "author": "Gleb Bayeshko",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "cd client && npm install && npm run build && cd ../server && npm install && npm run prod"
+  }
 }
