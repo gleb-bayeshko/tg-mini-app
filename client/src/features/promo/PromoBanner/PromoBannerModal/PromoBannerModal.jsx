@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useTelegramContext } from 'app/Telegram'
 import PropTypes from 'prop-types'
 import { Button } from 'shared/ui/Button'
 import { Field } from 'shared/ui/Inputs/Field'
@@ -20,7 +21,10 @@ const step = {
 
 const SUCCESS_ANIMATION_DELAY = 120
 
+export const MOCK_PROMO = 'SUPER_PROMO'
+
 function PromoBannerModal({ isOpen, onClose }) {
+  const { cloudStorage } = useTelegramContext()
   const formRef = useRef(null)
   const successRef = useRef(null)
   const [wizardStep, setWizardStep] = useState(0)
@@ -31,10 +35,36 @@ function PromoBannerModal({ isOpen, onClose }) {
   }
 
   const handleSubmit = async (values, form) => {
-    await new Promise(r => setTimeout(r, 500))
-    form.resetForm()
+    const promoCode = values['promo-code']
 
-    setWizardStep(1)
+    await cloudStorage.getItem('promoCode', (error, value) => {
+      if (error) {
+        form.setErrors({ 'promo-code': 'Something went wrong, please, try again' })
+        return
+      }
+
+      if (promoCode !== MOCK_PROMO) {
+        form.setErrors({ 'promo-code': 'Invalid promo code' })
+        return
+      }
+
+      if (value && value === MOCK_PROMO) {
+        form.setErrors({ 'promo-code': 'You have already activated this promo code!' })
+        return
+      }
+
+      cloudStorage.setItem('promoCode', promoCode, error => {
+        if (error) {
+          form.setErrors({ 'promo-code': 'Something went wrong, please, try again' })
+          error = true
+          return
+        }
+
+        form.resetForm()
+
+        setWizardStep(1)
+      })
+    })
   }
 
   const handleUnmount = () => {
