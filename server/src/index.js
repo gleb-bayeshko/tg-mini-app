@@ -1,23 +1,25 @@
 import 'dotenv/config'
 import express from 'express'
-import { Telegraf } from 'telegraf'
-import { message } from 'telegraf/filters'
+import cors from 'cors'
+import bot from './tg.js'
+import { router as makeOrderRouter } from './api/routes/makeOrder.js'
 
 import logger from './api/middlewares/loggerMiddleware'
+import tgAuth from './api/middlewares/tgAuthModdleware.js'
 
 const PORT = process.env.PORT ?? 8000
-const BOT_TOKEN = process.env.BOT_TOKEN
 
-if (!BOT_TOKEN) {
-  throw new Error('Bot token not provided')
-}
-
-const bot = new Telegraf(BOT_TOKEN)
 const app = express()
 
-app.use(logger)
+app.use(cors())
+
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
+
+app.use(tgAuth)
+app.use(logger)
+
+app.use('/makeOrder', makeOrderRouter)
 
 app.get('/', (req, res) => {
   res.send('Hello world!')
@@ -27,5 +29,4 @@ app.listen(PORT, () => {
   console.log('Listening on port:\t', PORT)
 })
 
-bot.on(message('text'), ctx => ctx.reply('Hello from bot!'))
 bot.launch()
