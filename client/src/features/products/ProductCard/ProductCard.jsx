@@ -5,6 +5,7 @@ import { Counter } from 'shared/ui/Counter'
 import Rating from 'shared/ui/Rating/Rating'
 import { Text } from 'shared/ui/Text'
 import { roundNumber } from 'shared/utils'
+import { routerPath } from 'pages/routes/const'
 import './styles.css'
 
 function ProductCard({
@@ -31,22 +32,20 @@ function ProductCard({
     />
   )
 
-  const LinkTag = noHref ? 'div' : Link
-
   return (
     <div className={`product-card product-card_${type}`}>
       <div className="product-card__content">
-        <LinkTag to={`../${category}/${id}`} relative="path" className="product-card__image-link">
+        <Link to={`${routerPath.products}/${category}/${id}`} className="product-card__image-link">
           <div className="product-card__image-container">
             <img src={imgSrc} alt="" className="product-card__image" />
           </div>
-        </LinkTag>
+        </Link>
 
-        <LinkTag to={`../${category}/${id}`} relative="path">
+        <Link to={`${routerPath.products}/${category}/${id}`}>
           <Text className={`product-card__title ${isRowCard ? 'h6' : 'h5'}`}>
             {name}
           </Text>
-        </LinkTag>
+        </Link>
         <div className="product-card__rating">
           <Rating value={rating} />
         </div>
