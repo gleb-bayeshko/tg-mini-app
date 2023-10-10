@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 import { FilterIcon, SortIcon } from 'shared/icons'
@@ -64,7 +64,7 @@ function ProductCatalogFilters() {
               color="white"
               onClick={handleSortButtonClick}
             >
-            Sort
+              {sortFilters.find(({ category }) => category === sortCategory).name}
               <SortIcon className="product-catalog-sort__sort-icon" />
             </Button>
             <DropdownMenu onClick={handleDropdownClose}>
