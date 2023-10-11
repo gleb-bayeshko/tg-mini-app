@@ -7,7 +7,6 @@ export default defineConfig(({ mode }) => {
   const isDev = mode === 'development'
 
   return {
-    base: 'tg-min-app',
     plugins: [
       jsconfigPaths(),
       react(),
