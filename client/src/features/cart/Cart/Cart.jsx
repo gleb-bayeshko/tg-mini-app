@@ -38,6 +38,7 @@ function Cart() {
   useEffect(() => {
     if (invoiceLink) {
       dispatch(clearInvoiceLink())
+      console.log(invoiceLink)
       tgApp.openInvoice(invoiceLink, status => {
         if (status === 'paid') {
           tgApp.close()

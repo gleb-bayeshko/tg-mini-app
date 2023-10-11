@@ -14,7 +14,7 @@ import './styles.css'
 function ProductCatalog() {
   const { category } = useParams()
 
-  const { sortCategory, filters, cart } = useSelector(state => state.productCatalog)
+  const { sortCategory, filters } = useSelector(state => state.productCatalog)
   const currentProducts = useMemo(() => products, [])
 
   const renderProducts = products => products.map(({
