@@ -1,0 +1,28 @@
+.promo-banner-card {
+    color: var(--white-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.promo-banner-card__text {
+    font-size: var(--font-size-2);
+}
+
+.promo-banner-card__discount {
+    font-size: var(--font-size-10);
+    font-weight: 900;
+}
+
+.promo-banner-card__text-code {
+    font-size: var(--font-size-7);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: transparent;
+    letter-spacing: 2px;
+    -webkit-text-stroke: 1px var(--white-color);
+}
+
+.promo-banner-card__button {
+    box-shadow: 0 0 8px 0 var(--black-dark-color-transparent-extra);
+}

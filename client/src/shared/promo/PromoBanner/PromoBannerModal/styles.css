@@ -1,0 +1,49 @@
+.promo-banner-modal__promo-code {
+    width: 100%;
+}
+
+.promo-banner-modal__image {
+    width: 170px;
+}
+
+.promo-banner-modal__text {
+    text-align: center;
+    margin-bottom: var(--spacing-8);
+}
+
+.promo-banner-modal__submit-button {
+    width: 100%;
+    margin-top: var(--spacing-8);
+}
+
+.promo-banner-modal__container {
+    display: flex;
+    justify-content: center;
+}
+
+.promo-banner-modal__image {
+    max-width: 100%;
+}
+
+.promo-banner-modal__form,
+.promo-banner-modal__wizard-step-success {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.promo-banner-modal__wizard,
+.promo-banner-modal__wizard-step {
+    height: 100%;
+}
+
+.promo-banner-modal__wizard-step-success-title {
+    margin-top: var(--spacing-6);
+    text-align: center;
+}
+
+.promo-banner-modal__wizard-step-success-description {
+    margin-top: var(--spacing-8);
+    text-align: center;
+}

@@ -19,7 +19,7 @@ class Request {
     const userId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
 
     await fetch(`${this.#baseUrl}/${url}`, {
-      method: method,
+      method,
       headers: { 'Content-Type': 'application/json', },
       referrerPolicy: 'no-referrer',
       body: JSON.stringify({
@@ -37,7 +37,7 @@ class Request {
         errorMessage = error
       })
 
-    return { isError, isSuccess, errorMessage, response: response }
+    return { isError, isSuccess, errorMessage, response }
   }
 
   async get(url) {

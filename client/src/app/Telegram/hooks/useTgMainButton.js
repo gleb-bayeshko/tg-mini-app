@@ -41,7 +41,7 @@ function useTgMainButton({
   }, [])
 
   useEffect(() => {
-    const button = window.Telegram.WebApp.MainButton || {}
+    const button = window.Telegram.WebApp.MainButton
 
     button.color = mainButtonColor[buttonType]
     button.textColor = mainButtonTextColor

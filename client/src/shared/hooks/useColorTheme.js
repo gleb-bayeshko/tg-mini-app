@@ -5,12 +5,13 @@ function useColorTheme() {
 
   useEffect(() => {
     window.Telegram.WebApp.onEvent('themeChanged', function () {
+      console.log(this)
       setIsDarkTheme(this.colorScheme === 'dark')
     })
 
     const { colorScheme } = window.Telegram?.WebApp
 
-    setIsDarkTheme(colorScheme)
+    setIsDarkTheme(colorScheme === 'dark')
   }, [])
 
   return isDarkTheme
