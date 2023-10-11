@@ -1,17 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { UserAPI } from 'api/UserAPI'
+import InvoiceAPI from 'api/InvoiceAPI'
 
 export const sendCartToInvoice = createAsyncThunk(
   'cart-slice/sendCartToInvoiceStatus',
   async (isPromoCode, { getState }) => {
     const { products } = getState().cart
-    try {
-      const { response } = await UserAPI.sendCartToInvoice(products)
-      return response?.data.invoiceLink
-    } catch (e) {
-      return JSON.stringify(e.message)
-    }
 
+    const { response } = await InvoiceAPI.createInvoice(products)
+    return response?.data.invoiceLink
   }
 )
 
