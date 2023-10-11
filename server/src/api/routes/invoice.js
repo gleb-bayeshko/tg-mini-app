@@ -1,5 +1,6 @@
 import express from 'express'
 import bot from '../../tg.js'
+
 export const router = express.Router()
 
 const USD_SMALLEST_UNIT_MULTIPLIER = 100
@@ -33,7 +34,7 @@ router.post('/create', async (req, res) => {
   } catch (error) {
     res.status(400).send({
       status: 'error',
-      error,
+      error: error?.response,
     })
   }
 })
