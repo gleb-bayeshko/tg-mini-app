@@ -6,7 +6,6 @@ const productCatalogSlice = createSlice({
   initialState: {
     sortCategory: sortCategories.priceHighToLow,
     filters: {},
-    cart: [],
   },
   reducers: {
     setSortCategory(state, action) {

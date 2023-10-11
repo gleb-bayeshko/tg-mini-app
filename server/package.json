@@ -5,12 +5,14 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon --experimental-modules --es-module-specifier-resolution=node src/index.js",
-    "prod": "node --experimental-modules --es-module-specifier-resolution=node src/index.js"
+    "dev": "cross-env DEV_MODE=true nodemon --experimental-modules --es-module-specifier-resolution=node src/index.js",
+    "prod": "cross-env node --experimental-modules --es-module-specifier-resolution=node src/index.js",
+    "sslgen": "openssl genrsa -out key.pem && openssl req -new -key key.pem -out csr.pem && openssl x509 -req -days 9999 -in csr.pem -signkey key.pem -out cert.pem"
   },
   "author": "Gleb Bayeshko",
   "license": "MIT",
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "eslint": "8.22.0",
     "nodemon": "^3.0.1"
   },

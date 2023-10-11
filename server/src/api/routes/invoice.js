@@ -5,12 +5,12 @@ export const router = express.Router()
 const USD_SMALLEST_UNIT_MULTIPLIER = 100
 
 const getInvoice = (id, prices) => ({
-  title: 'Order',
+  title: 'Invoice',
   description: 'Cat products',
   payload: { unique_id: `${id}_${Number(new Date())}` },
   provider_token: process.env.PROVIDER_TOKEN,
   currency: 'USD',
-  prices: prices,
+  prices,
 })
 
 const prepareProducts = (receivedProducts) => receivedProducts.map(({ price, title, count }) => ({
@@ -18,7 +18,7 @@ const prepareProducts = (receivedProducts) => receivedProducts.map(({ price, tit
   amount: price * count * USD_SMALLEST_UNIT_MULTIPLIER
 }))
 
-router.post('/', async (req, res) => {
+router.post('/create', async (req, res) => {
   try {
     const userId = req.body.userId
 

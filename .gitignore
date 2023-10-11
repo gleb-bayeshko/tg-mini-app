@@ -2,3 +2,7 @@
 **/.env.local
 **/.env.dev.local
 **/node_modules
+
+**/dist
+
+**/ssl
