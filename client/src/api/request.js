@@ -9,24 +9,22 @@ class Request {
     this.#baseUrl = baseUrl
   }
 
-  async #customFetch(method, url, data) {
+  async #customFetch(method, url, data, params) {
+    Request.#setCookie()
+
     let isError = false
     let isSuccess = true
     let errorMessage = ''
     let response = null
 
-    const authData = window.Telegram?.WebApp?.initData
-    const userId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
+    const searchParams = params ? `?${new URLSearchParams(params)}` : ''
 
-    await fetch(`${this.#baseUrl}/${url}`, {
+    await fetch(`${this.#baseUrl}/${url}${searchParams}`, {
       method,
+      credentials: 'include',
       headers: { 'Content-Type': 'application/json', },
       referrerPolicy: 'no-referrer',
-      body: JSON.stringify({
-        data,
-        authData,
-        userId
-      }),
+      body: data && JSON.stringify({ data }),
     })
       .then(async d => {
         response = await d.json()
@@ -34,18 +32,35 @@ class Request {
       })
       .catch(error => {
         isError = true
-        errorMessage = error
+        errorMessage = error.message
       })
 
     return { isError, isSuccess, errorMessage, response }
   }
 
-  async get(url) {
-    return this.#customFetch(this.#method.GET, url)
+  static #setCookie() {
+    try {
+      const authData = window.Telegram?.WebApp?.initData
+      const userId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
+
+      const cookieValues = [{ authData }, { userId }]
+        .filter(field => !!Object.values(field)[0])
+        .map(field => Object.entries(field)[0].join('='))
+        .join(';')
+
+      document.cookie = `${cookieValues}; path=/`
+    } catch (e) {
+      console.log(e)
+    }
+
   }
 
-  async post(url, data) {
-    return this.#customFetch(this.#method.POST, url, data)
+  async get(url, params) {
+    return this.#customFetch(this.#method.GET, url, null, params)
+  }
+
+  async post(url, data, params) {
+    return this.#customFetch(this.#method.POST, url, data, params)
   }
 }
 

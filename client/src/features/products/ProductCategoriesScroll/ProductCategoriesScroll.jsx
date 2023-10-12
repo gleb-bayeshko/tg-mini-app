@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ProductCategoriesItem } from './ProductCategoriesItem'
+import { ProductCategoriesScrollItem } from './ProductCategoriesScrollItem'
 import { productCategoriesScroll } from './const'
 import { routerPath } from 'pages/routes/const'
 import './styles.css'
@@ -13,7 +13,7 @@ function ProductCategoriesScroll() {
   }) => (
     <li className="product-categories-scroll-list__item" key={id}>
       <Link to={`${routerPath.products}/${category}`}>
-        <ProductCategoriesItem
+        <ProductCategoriesScrollItem
           name={name}
           imgSrc={imgSrc}
         />

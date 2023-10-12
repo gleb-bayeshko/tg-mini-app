@@ -7,16 +7,14 @@ function useProductCounter(id) {
   const { products: productsInCart } = useSelector(state => state.cart)
   const dispatch = useDispatch()
 
-  const handleCounterChange = useCallback(count => {
-    if (count === 0 ) {
-      dispatch(removeProductFromCart({ id }))
-
-      return
-    }
-
+  const handleCounterOnChange = useCallback(count => {
     const { name, price } = products.find(({ id: productId }) => `${productId}` === `${id}`)
 
     dispatch(addProductToCartWithCount({ count, id, name, price }))
+  }, [id, dispatch])
+
+  const handleCounterOnZero = useCallback(() => {
+    dispatch(removeProductFromCart({ id }))
   }, [id, dispatch])
 
   const getInitialCounterValue = () => {
@@ -30,7 +28,8 @@ function useProductCounter(id) {
   }
 
   return {
-    handleCounterChange,
+    handleCounterOnChange,
+    handleCounterOnZero,
     getInitialCounterValue,
   }
 }

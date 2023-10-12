@@ -8,6 +8,7 @@ function Counter({
   buttonText = 'Add',
   size = 'default',
   onChange,
+  onZeroCount,
   className,
   initialValue,
 }) {
@@ -26,8 +27,13 @@ function Counter({
   }
 
   useEffect(() => {
+    if (counter === 0) {
+      onZeroCount?.()
+
+      return
+    }
     onChange?.(counter)
-  }, [counter, onChange])
+  }, [counter])
 
   return (
     <div className={getClassName('counter', {
@@ -75,6 +81,7 @@ function Counter({
 
 Counter.propTypes = {
   onChange: PropTypes.func,
+  onZeroCount: PropTypes.func,
   buttonText: PropTypes.string,
   initialValue: PropTypes.number,
   className: PropTypes.string,

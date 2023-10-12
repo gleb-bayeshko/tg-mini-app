@@ -1,6 +1,6 @@
 **/.env
 **/.env.local
-**/.env.dev.local
+client/.env.development.local
 **/node_modules
 
 **/dist

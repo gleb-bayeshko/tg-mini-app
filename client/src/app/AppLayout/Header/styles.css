@@ -3,7 +3,7 @@
     max-width: var(--max-viewport-width);
     width: 100%;
     height: var(--header-height);
-    padding: var(--spacing-2) 0;
+    padding: var(--spacing-4) 0;
     background: var(--header-background-color);
     z-index: var(--header-z-index);
     transition: box-shadow 300ms;
@@ -24,20 +24,32 @@
 }
 
 .header__burger-button {
+    position: absolute;
+    top: 4px;
     z-index: var(--burger-button-z-index);
+    transform: scale(1);
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 200ms, transform 200ms, opacity 200ms;
+}
+
+.header__burger-button_hidden {
+    transform: scale(0);
+    visibility: hidden;
+    opacity: 0;
 }
 
 .header__logo {
     display: flex;
     width: 80px;
-    margin-left: var(--spacing-10);
-    margin-bottom: -1px;
+    margin-left: var(--spacing-15);
+    margin-bottom: -6px;
     z-index: var(--logo-z-index);
     transition: margin 200ms;
 }
 
 .header__logo_shifted {
-    margin-left: var(--spacing-15);
+    margin-left: var(--spacing-17);
 }
 
 .header__arrow-icon {
@@ -46,8 +58,20 @@
 }
 
 .header__arrow-icon-container {
+    position: absolute;
+    top: 4px;
     display: flex;
     align-items: center;
+    transform: scale(0);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 200ms, transform 200ms, opacity 200ms;
+}
+
+.header__arrow-icon-container_visible {
+    transform: scale(1);
+    visibility: visible;
+    opacity: 1;
 }
 
 .header__arrow-icon {
@@ -73,5 +97,4 @@
 }
 
 .header__logo_with-arrow {
-    transform: translateX(-4px);
 }

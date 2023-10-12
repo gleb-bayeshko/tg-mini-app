@@ -2,11 +2,16 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import InvoiceAPI from 'api/InvoiceAPI'
 
 export const sendCartToInvoice = createAsyncThunk(
-  'cart-slice/sendCartToInvoiceStatus',
-  async (isPromoCode, { getState }) => {
+  'cart-slice/sendCartToInvoice',
+  async (isPromoCode, { getState, rejectWithValue }) => {
     const { products } = getState().cart
 
-    const { response } = await InvoiceAPI.createInvoice(products)
+    const { response, isError, errorMessage } = await InvoiceAPI.createInvoice(products)
+
+    if (isError) {
+      return rejectWithValue(errorMessage)
+    }
+
     return response?.data.invoiceLink
   }
 )
@@ -15,8 +20,9 @@ const cartSlice = createSlice({
   name: 'cart-slice',
   initialState: {
     products: [],
-    loading: false,
+    isLoading: false,
     isError: null,
+    error: null,
     invoiceLink: null
   },
   reducers: {
@@ -55,16 +61,17 @@ const cartSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(sendCartToInvoice.fulfilled, (state, action) => {
-        state.loading = false
+        state.isLoading = false
         state.invoiceLink = action.payload
       })
       .addCase(sendCartToInvoice.pending, (state, action) => {
-        state.loading = true
+        state.isLoading = true
         state.isError = false
       })
       .addCase(sendCartToInvoice.rejected, (state, action) => {
-        state.loading = false
+        state.isLoading = false
         state.isError = true
+        state.error = action.payload
       })
   },
 })

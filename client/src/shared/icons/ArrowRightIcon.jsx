@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-function ArrowRightIcon({ className, styles }) {
+function ArrowRightIcon({ className, styles, ...other }) {
   return (
     <svg
       viewBox="0 0 24.00 24.00"
@@ -10,6 +10,7 @@ function ArrowRightIcon({ className, styles }) {
       strokeWidth="0.504"
       className={className}
       style={styles}
+      {...other}
     >
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>

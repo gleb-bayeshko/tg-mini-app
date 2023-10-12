@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types'
 
-function LogoIcon({ className, styles }) {
+function LogoIcon({ className, styles, ...other }) {
   return (
     <svg
       className={className}
       style={styles}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 395.52 75.61251310344826"
+      {...other}
     >
       <g transform="matrix(1,0,0,1,0,0)">
         <svg width="395.52" viewBox="3.3 -34.6 181.23 34.65" height="75.61251310344826" data-palette-color="#ff575f">

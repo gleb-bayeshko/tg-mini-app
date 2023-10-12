@@ -1,16 +1,22 @@
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { removeProductFromCart } from 'features/cart/Cart/cartSlice'
 import { useProductCounter } from 'features/products/Product'
 import PropTypes from 'prop-types'
+import { useDelayUnmount } from 'shared/hooks'
+import { CloseIcon } from 'shared/icons'
+import { Card } from 'shared/ui/Card'
 import { Counter } from 'shared/ui/Counter'
-import Rating from 'shared/ui/Rating/Rating'
+import { Rating } from 'shared/ui/Rating'
 import { Text } from 'shared/ui/Text'
-import { roundNumber } from 'shared/utils'
+import { getClassName, roundNumber } from 'shared/utils'
 import { routerPath } from 'pages/routes/const'
 import './styles.css'
 
 function ProductCard({
   type = 'card',
-  noHref = false,
+  className,
   id,
   name,
   rating,
@@ -19,21 +25,50 @@ function ProductCard({
   imgSrc,
   priceMultiplier,
 }) {
-  const { handleCounterChange, getInitialCounterValue } = useProductCounter(id)
+  const [isMounted, setIsMounted] = useState(true)
+  const { handleCounterOnChange, handleCounterOnZero, getInitialCounterValue } = useProductCounter(id)
+  const dispatch = useDispatch()
+
+  const handleDeleteIcon = () => {
+    setIsMounted(false)
+  }
+
+  const handleRemoveProduct = () => {
+    dispatch(removeProductFromCart({ id }))
+  }
+
+  const shouldRender = useDelayUnmount(isMounted, 250, handleRemoveProduct)
 
   const isRowCard = type === 'row-card'
+  const Tag = isRowCard ? Card : 'div'
 
   const renderCounter = size => (
     <Counter
-      onChange={handleCounterChange}
+      onChange={handleCounterOnChange}
       buttonText="Add to cart"
       initialValue={getInitialCounterValue()}
+      onZeroCount={isRowCard ? handleDeleteIcon : handleCounterOnZero}
       size={size}
     />
   )
 
-  return (
-    <div className={`product-card product-card_${type}`}>
+  return shouldRender && (
+    <Tag
+      className={getClassName(
+        `product-card product-card_${type}`,
+        {
+          'product-card_deleted': isRowCard && !isMounted,
+          [className]: !!className
+        }
+      )}
+      color={isRowCard && 'white'}
+    >
+      {isRowCard && (
+        <CloseIcon
+          className="product-card__icon-delete"
+          onClick={handleDeleteIcon}
+        />
+      )}
       <div className="product-card__content">
         <Link to={`${routerPath.products}/${category}/${id}`} className="product-card__image-link">
           <div className="product-card__image-container">
@@ -58,11 +93,12 @@ function ProductCard({
       </div>
 
       {!isRowCard && renderCounter()}
-    </div>
+    </Tag>
   )
 }
 
 ProductCard.propTypes = {
+  className: PropTypes.string,
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   rating: PropTypes.number.isRequired,
@@ -70,7 +106,6 @@ ProductCard.propTypes = {
   priceMultiplier: PropTypes.number,
   category: PropTypes.string.isRequired,
   imgSrc: PropTypes.string.isRequired,
-  noHref: PropTypes.bool,
   type: PropTypes.oneOf(['card', 'row-card']),
 }
 

@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { useProductCounter } from 'features/products/Product/index'
-import { products } from 'mock/products'
+import { fetchProduct, resetProduct } from 'features/products/Product/productSlice'
 import { Counter } from 'shared/ui/Counter'
 import { Rating } from 'shared/ui/Rating'
 import { Spinner } from 'shared/ui/Spinner'
@@ -11,13 +12,16 @@ import './styles.css'
 
 function Product() {
   const { id } = useParams()
-  const [product, setProduct] = useState(null)
-  const { handleCounterChange, getInitialCounterValue } = useProductCounter(id)
+  const { product } = useSelector(state => state.product)
+  const { getInitialCounterValue, handleCounterOnChange, handleCounterOnZero } = useProductCounter(id)
+  const dispatch = useDispatch()
 
-  // Imitate request
   useEffect(() => {
-    const product = products.find(({ id: productId }) => `${productId}` === `${id}`)
-    setProduct(product)
+    dispatch(fetchProduct({ id }))
+
+    return () => {
+      dispatch(resetProduct())
+    }
   }, [id])
 
   return product
@@ -40,7 +44,8 @@ function Product() {
             {`$${product.price}`}
           </div>
           <Counter
-            onChange={handleCounterChange}
+            onChange={handleCounterOnChange}
+            onZeroCount={handleCounterOnZero}
             buttonText="Add to cart"
             className="product-main__add-to-cart"
             initialValue={getInitialCounterValue()}

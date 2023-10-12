@@ -11,6 +11,7 @@ import { Card } from 'shared/ui/Card'
 import { Text } from 'shared/ui/Text'
 import { Wrapper } from 'shared/ui/Wrapper'
 import useCart from './useCart'
+import { routerPath } from 'pages/routes/const'
 import './styles.css'
 
 function Cart() {
@@ -38,7 +39,7 @@ function Cart() {
   useEffect(() => {
     if (invoiceLink) {
       dispatch(clearInvoiceLink())
-      console.log(invoiceLink)
+
       tgApp.openInvoice(invoiceLink, status => {
         if (status === 'paid') {
           tgApp.close()
@@ -76,19 +77,19 @@ function Cart() {
       } = products.find(({ id: productId }) => productId === productInCartId)
 
       return (
-        <Card key={id} className="cart__product-card" color="white">
-          <ProductCard
-            id={id}
-            price={price}
-            category={category}
-            rating={rating}
-            name={name}
-            priceMultiplier={count}
-            imgSrc={imgSrc}
-            type="row-card"
-            noHref
-          />
-        </Card>
+        <ProductCard
+          key={id}
+          className="cart__product-card"
+          id={id}
+          price={price}
+          category={category}
+          rating={rating}
+          name={name}
+          priceMultiplier={count}
+          imgSrc={imgSrc}
+          type="row-card"
+          noHref
+        />
       )
     })
   }
@@ -128,7 +129,7 @@ function Cart() {
               <Text className="cart__product-empty-description text-lg" color="gray">
                 {'It looks like you haven\'t added anything to your cart yet. So it\'s time to go back to the store and choose something!'}
               </Text>
-              <Link to="/">
+              <Link to={routerPath.products}>
                 <Button color="green" className="cart__product-empty-button">
                   Go to store!
                 </Button>

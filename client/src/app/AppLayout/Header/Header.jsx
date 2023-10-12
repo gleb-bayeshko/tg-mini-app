@@ -37,20 +37,22 @@ function Header () {
       <Wrapper>
         <div className="header__content">
           <div className="header__left">
-            {
-              (isProductPage || isCartPage)
-                ? (
-                  <div className="header__arrow-icon-container" onClick={handleArrowClick}>
-                    <ArrowRightIcon className="header__arrow-icon" />
-                  </div>
-                )
-                : (
-                  <BurgerButton
-                    className="header__burger-button"
-                    onClick={handleBurgerButtonClick}
-                  />
-                )
-            }
+            <div
+              className={getClassName(
+                'header__arrow-icon-container',
+                { 'header__arrow-icon-container_visible': isProductPage || isCartPage }
+              )}
+              onClick={handleArrowClick}
+            >
+              <ArrowRightIcon className="header__arrow-icon" />
+            </div>
+            <BurgerButton
+              className={getClassName(
+                'header__burger-button',
+                { 'header__burger-button_hidden': isProductPage || isCartPage }
+              )}
+              onClick={handleBurgerButtonClick}
+            />
             <Link
               to={routerPath.home} className={getClassName('header__logo', {
                 'header__logo_shifted': isDrawerOpened,

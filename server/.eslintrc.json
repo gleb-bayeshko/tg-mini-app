@@ -23,6 +23,6 @@
     "object-curly-newline": ["error", { "multiline": true }],
     "no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
     "prefer-const": "warn",
-    "arrow-parens": ["error", "always"]
+    "arrow-parens": ["warn", "as-needed"]
   }
 }

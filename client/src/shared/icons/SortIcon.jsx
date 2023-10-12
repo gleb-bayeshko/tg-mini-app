@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-function SortIcon({ className, styles }) {
+function SortIcon({ className, styles, ...other }) {
   return (
     <svg
       className={className}
@@ -14,6 +14,7 @@ function SortIcon({ className, styles }) {
       strokeWidth="2"
       viewBox="0 0 24 24"
       width="24"
+      {...other}
     >
       <path d="M0 0h24v24H0z" fill="none" stroke="none" />
       <path d="M3 9l4 -4l4 4m-4 -4v14" />
